@@ -1,0 +1,60 @@
+// breakpoint
+$xs: "575px";
+$sm: "767px";
+$md: "991px";
+$lg: "1200px";
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 20px 30px;
+
+  &-logo {
+    margin-top: -15px;
+  }
+
+  &-shop {
+    margin-top: -70px;
+  }
+
+  @media (max-width: $sm) {
+    &-logo {
+      width: 415px;
+    }
+
+    &-shop {
+      width: 355px;
+    }
+  }
+
+  @media (min-width: $sm) {
+    &-logo {
+      width: 800px;
+    }
+
+    &-shop {
+      width: 600px;
+    }
+  }
+
+  &-buttons {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+
+    button {
+      background-color: #6a8d4a;
+      border-radius: 20px;
+    }
+
+    a {
+      color: #ffc31a;
+      text-decoration: none;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  }
+}
