@@ -1,1 +1,68 @@
-<p>Login works</p>
+<div class="box">
+  <h3 class="title">Login</h3>
+  <form [formGroup]="formLogin" (ngSubmit)="login()">
+    <div class="form-group has-error">
+      <label for="email">Email</label>
+      <input
+        autocomplete="off"
+        placeholder="Enter email..."
+        formControlName="email"
+        type="email"
+        class="form-control"
+        id="email"
+        aria-describedby="email"
+        [ngClass]="{
+          'is-invalid': formLogin.controls.email.errors,
+          'is-valid': !formLogin.controls.email.errors
+        }"
+      />
+      <div *ngIf="formLogin.controls?.email?.errors" class="invalid-feedback">
+        Please, provide a valid email.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        autocomplete="off"
+        placeholder="Enter password..."
+        formControlName="pwd"
+        type="password"
+        class="form-control"
+        id="password"
+        [ngClass]="{
+          'is-invalid': formLogin.controls.pwd.errors,
+          'is-valid': !formLogin.controls.pwd.errors
+        }"
+      />
+      <div *ngIf="formLogin.controls?.pwd?.errors" class="invalid-feedback">
+        Please, provide a valid password (6-12 characters).
+      </div>
+    </div>
+
+    <div class="box-buttons">
+      <div class="box-buttons-msgError" *ngIf="hasMsgErrorLoginAndPwd">
+        Your email or password is incorrect. Try again!
+      </div>
+      <button
+        [ngClass]="{ 'btn-disabled': formLogin.invalid }"
+        [disabled]="formLogin.invalid"
+        type="submit"
+        mat-raised-button
+      >
+        LOGIN
+      </button>
+      <div class="box-buttons-links">
+        <a routerLink="/auth/reset">ESQUECEU A SENHA?</a>
+        <a routerLink="/auth/register">INSCREVA-SE</a>
+      </div>
+    </div>
+  </form>
+
+  <div class="box-logo">
+    <img
+      class="img-fluid"
+      src="../../../../../assets/images/logo/WeFeed_Logo_Principal(sem brackground).png"
+      alt=""
+    />
+  </div>
+</div>
