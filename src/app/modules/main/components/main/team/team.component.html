@@ -1,0 +1,24 @@
+<div class="container">
+  <div
+    *ngFor="let p of people; let i = index"
+    [ngStyle]="{
+      'flex-direction': isPositionImpar(i) ? 'row-reverse' : 'row'
+    }"
+    class="container-box"
+  >
+    <div
+      class="container-box-item"
+      style="background-image: url('{{ p.imgPath }}')"
+    ></div>
+    <div class="container-box-group_person">
+      <span class="container-box-group_person-item_name">{{ p.name }}</span>
+      <span
+        [ngStyle]="{
+          'text-align': isPositionImpar(i) ? 'right' : 'left'
+        }"
+        class="container-box-item_ra"
+        >{{ p.ra }}</span
+      >
+    </div>
+  </div>
+</div>
