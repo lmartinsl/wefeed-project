@@ -1,3 +1,56 @@
-<div class="container">
-  <p>register works!</p>
+<div class="box">
+  <h3 class="title">Inscrever-se</h3>
+  <form>
+    <div class="form-group has-error">
+      <label for="email">Email</label>
+      <input
+        autocomplete="off"
+        placeholder="Enter email..."
+        type="email"
+        class="form-control"
+        id="email"
+        aria-describedby="email"
+      />
+      <div class="invalid-feedback">Please, provide a valid email.</div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        autocomplete="off"
+        placeholder="Enter password..."
+        type="password"
+        class="form-control"
+        id="password"
+      />
+      <div class="invalid-feedback">
+        Please, provide a valid password (6-12 characters).
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fullname">Full Name</label>
+      <input
+        autocomplete="off"
+        placeholder="Enter full name..."
+        type="text"
+        class="form-control"
+        id="fullname"
+      />
+    </div>
+
+    <div class="box-buttons">
+      <button type="submit" mat-raised-button>SIGNUP</button>
+      <div class="box-buttons-links">
+        <a routerLink="/auth/login">JÁ TEM UMA CONTA?</a>
+      </div>
+    </div>
+  </form>
+
+  <div class="box-logo">
+    <img
+      class="img-fluid"
+      src="../../../../../assets/images/logo/WeFeed_Logo_Principal(sem brackground).png"
+      alt=""
+    />
+  </div>
 </div>
