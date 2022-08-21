@@ -1,3 +1,10 @@
+<mat-toolbar *ngIf="!(authService.hasAuth$ | async)" class="mat-elevation-z2">
+  <button routerLink="/auth/login" mat-icon-button>
+    <mat-icon>keyboard_backspace</mat-icon>
+  </button>
+  <h3>Sobre nós</h3>
+  <span style="margin: 0 10px"></span>
+</mat-toolbar>
 <div class="box-about">
   <h1>
     Somos uma plataforma destinada a intermediar e coordenar a distribuição de
