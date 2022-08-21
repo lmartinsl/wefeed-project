@@ -9,7 +9,7 @@ import { User } from '../interfaces/user';
 export class AuthService {
 
   private mockLoginPwd: Array<User> = [];
-  private hasAuthenticated$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public hasAuthenticated$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public hasAuth$: Observable<boolean> = this.hasAuthenticated$.asObservable();
 
   constructor(
