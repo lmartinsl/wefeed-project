@@ -24,7 +24,6 @@ $lg: "1200px";
     }
 
     &-shop {
-      width: 355px;
     }
   }
 
@@ -52,10 +51,17 @@ $lg: "1200px";
     }
 
     a {
-      color: #ffc31a;
       text-decoration: none;
-      margin-top: 20px;
       font-weight: 500;
+      margin-top: 25px;
+    }
+
+    a.login {
+      color: #d6a620;
+    }
+
+    a.about {
+      color: #6a8d4a;
     }
   }
 }

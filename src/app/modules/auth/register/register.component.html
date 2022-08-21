@@ -1,28 +1,38 @@
 <div class="box">
   <h3 class="title">Inscrever-se</h3>
-  <form>
+  <form [formGroup]="formRegister" (ngSubmit)="register()">
     <div class="form-group has-error">
       <label for="email">Email</label>
       <input
+        formControlName="email"
         autocomplete="off"
         placeholder="Enter email..."
         type="email"
         class="form-control"
         id="email"
         aria-describedby="email"
+        [ngClass]="{
+          'is-invalid': formRegister.controls.email.errors,
+          'is-valid': !formRegister.controls.email.errors
+        }"
       />
       <div class="invalid-feedback">Please, provide a valid email.</div>
     </div>
     <div class="form-group">
       <label for="password">Password</label>
       <input
+        formControlName="pwd"
         autocomplete="off"
         placeholder="Enter password..."
         type="password"
         class="form-control"
         id="password"
+        [ngClass]="{
+          'is-invalid': formRegister.controls.pwd.errors,
+          'is-valid': !formRegister.controls.pwd.errors
+        }"
       />
-      <div class="invalid-feedback">
+      <div *ngIf="formRegister.controls?.pwd?.errors" class="invalid-feedback">
         Please, provide a valid password (6-12 characters).
       </div>
     </div>
@@ -30,23 +40,41 @@
     <div class="form-group">
       <label for="fullname">Full Name</label>
       <input
+        formControlName="fullName"
         autocomplete="off"
         placeholder="Enter full name..."
         type="text"
         class="form-control"
         id="fullname"
+        [ngClass]="{
+          'is-invalid': formRegister.controls.fullName.errors,
+          'is-valid': !formRegister.controls.fullName.errors
+        }"
       />
+      <div
+        *ngIf="formRegister.controls?.fullName?.errors"
+        class="invalid-feedback"
+      >
+        Please, enter your <strong>Full Name.</strong>
+      </div>
     </div>
 
     <div class="box-buttons">
-      <button type="submit" mat-raised-button>SIGNUP</button>
+      <button
+        [ngClass]="{ 'btn-disabled': formRegister.invalid }"
+        [disabled]="formRegister.invalid"
+        type="submit"
+        mat-raised-button
+      >
+        REGISTRAR
+      </button>
       <div class="box-buttons-links">
         <a routerLink="/auth/login">JÁ TEM UMA CONTA?</a>
       </div>
     </div>
   </form>
 
-  <div class="box-logo">
+  <div class="box-logo" routerLink="">
     <img
       class="img-fluid"
       src="../../../../../assets/images/logo/WeFeed_Logo_Principal(sem brackground).png"

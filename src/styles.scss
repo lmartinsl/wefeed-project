@@ -9,3 +9,15 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.snackSuccess {
+  background-color: #6a8d4a;
+  color: white;
+  font-size: 18px;
+}
+
+.snackError {
+  background-color: #c24d4d;
+  color: white;
+  font-size: 18px;
+}

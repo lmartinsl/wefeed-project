@@ -4,13 +4,11 @@
     <div class="form-group has-error">
       <label for="email">Email</label>
       <input
-        autocomplete="off"
         placeholder="Enter email..."
         formControlName="email"
         type="email"
         class="form-control"
         id="email"
-        aria-describedby="email"
         [ngClass]="{
           'is-invalid': formLogin.controls.email.errors,
           'is-valid': !formLogin.controls.email.errors
@@ -23,7 +21,6 @@
     <div class="form-group">
       <label for="password">Password</label>
       <input
-        autocomplete="off"
         placeholder="Enter password..."
         formControlName="pwd"
         type="password"
@@ -40,9 +37,6 @@
     </div>
 
     <div class="box-buttons">
-      <div class="box-buttons-msgError" *ngIf="hasMsgErrorLoginAndPwd">
-        Your email or password is incorrect. Try again!
-      </div>
       <button
         [ngClass]="{ 'btn-disabled': formLogin.invalid }"
         [disabled]="formLogin.invalid"
@@ -58,7 +52,7 @@
     </div>
   </form>
 
-  <div class="box-logo">
+  <div class="box-logo" routerLink="">
     <img
       class="img-fluid"
       src="../../../../../assets/images/logo/WeFeed_Logo_Principal(sem brackground).png"
