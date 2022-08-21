@@ -1,0 +1,27 @@
+.box {
+  &-about {
+    padding: 40px 25px 25px;
+
+    h1 {
+      font-weight: 300;
+    }
+  }
+
+  &-button {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+
+    button {
+      background-color: #6a8d4a;
+      border-radius: 20px;
+      color: white;
+
+      span {
+        font-size: 18px !important;
+      }
+    }
+  }
+}
