@@ -1,1 +1,65 @@
-<p>reset works!</p>
+<div class="box">
+  <h3 class="title">Redefinição de senha</h3>
+  <h6 class="subtitle">
+    Informe seu endereço de e-mail para que você possa redefinir a sua senha.
+  </h6>
+  <form [formGroup]="formReset" (ngSubmit)="reset()">
+    <div class="form-group">
+      <label>Email</label>
+      <input
+        formControlName="email"
+        placeholder="Informe seu e-mail..."
+        type="email"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': formReset.controls.email.errors,
+          'is-valid': !formReset.controls.email.errors
+        }"
+      />
+      <div *ngIf="formReset.controls?.email?.errors" class="invalid-feedback">
+        Por favor, informe um e-mail válido.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Informe sua nova senha</label>
+      <input
+        formControlName="pwd1"
+        placeholder="Digite sua nova senha..."
+        type="password"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': formReset.controls.pwd1.errors,
+          'is-valid': !formReset.controls.pwd1.errors
+        }"
+      />
+      <div *ngIf="formReset.controls?.pwd1?.errors" class="invalid-feedback">
+        Por favor, informe uma senha válida (6-12 caracteres).
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Informe novamente a sua nova senha</label>
+      <input
+        formControlName="pwd2"
+        placeholder="Digite novamente sua nova senha..."
+        type="password"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': formReset?.errors?.hasMatchingError,
+          'is-valid': !formReset?.errors?.hasMatchingError
+        }"
+      />
+      <div *ngIf="formReset?.errors?.hasMatchingError" class="invalid-feedback">
+        Senha não confere com a senha anterior.
+      </div>
+    </div>
+
+    <div class="box-buttons">
+      <button type="submit" mat-raised-button>ENVIAR</button>
+      <div class="box-buttons-links">
+        <a routerLink="/auth/login">CANCELAR</a>
+      </div>
+    </div>
+  </form>
+</div>
