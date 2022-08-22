@@ -1,0 +1,18 @@
+<mat-toolbar *ngIf="!(authService.hasAuth$ | async)" class="mat-elevation-z2">
+  <button routerLink="/auth/login" mat-icon-button>
+    <mat-icon>keyboard_backspace</mat-icon>
+  </button>
+  <h3>Sobre nós</h3>
+  <span style="margin: 0 10px"></span>
+</mat-toolbar>
+<div class="box-about">
+  <h1>
+    Somos uma plataforma destinada a intermediar e coordenar a distribuição de
+    alimentos processados ou em natura no combate a cultura do desperdício.
+  </h1>
+  <div *ngIf="!(authService.hasAuth$ | async)" class="box-button">
+    <button routerLink="/auth/register" mat-raised-button>
+      <span>QUERO CONTRIBUIR</span>
+    </button>
+  </div>
+</div>

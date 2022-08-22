@@ -1,0 +1,84 @@
+<div class="box">
+  <h3 class="title">Inscrever-se</h3>
+  <form [formGroup]="formRegister" (ngSubmit)="register()">
+    <div class="form-group has-error">
+      <label for="email">E-mail</label>
+      <input
+        formControlName="email"
+        autocomplete="off"
+        placeholder="Enter email..."
+        type="email"
+        class="form-control"
+        id="email"
+        aria-describedby="email"
+        [ngClass]="{
+          'is-invalid': formRegister.controls.email.errors,
+          'is-valid': !formRegister.controls.email.errors
+        }"
+      />
+      <div class="invalid-feedback">Por favor, informe um e-mail válido.</div>
+    </div>
+    <div class="form-group">
+      <label for="password">Senha</label>
+      <input
+        formControlName="pwd"
+        autocomplete="off"
+        placeholder="Enter password..."
+        type="password"
+        class="form-control"
+        id="password"
+        [ngClass]="{
+          'is-invalid': formRegister.controls.pwd.errors,
+          'is-valid': !formRegister.controls.pwd.errors
+        }"
+      />
+      <div *ngIf="formRegister.controls?.pwd?.errors" class="invalid-feedback">
+        Por favor, informe uma senha válida (6-12 caracteres).
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fullname">Nome completo</label>
+      <input
+        formControlName="fullName"
+        autocomplete="off"
+        placeholder="Enter full name..."
+        type="text"
+        class="form-control"
+        id="fullname"
+        [ngClass]="{
+          'is-invalid': formRegister.controls.fullName.errors,
+          'is-valid': !formRegister.controls.fullName.errors
+        }"
+      />
+      <div
+        *ngIf="formRegister.controls?.fullName?.errors"
+        class="invalid-feedback"
+      >
+        Por favor, informe seu <strong>nome completo.</strong>
+      </div>
+    </div>
+
+    <div class="box-buttons">
+      <button
+        [ngClass]="{ 'btn-disabled': formRegister.invalid }"
+        [disabled]="formRegister.invalid"
+        type="submit"
+        mat-raised-button
+      >
+        REGISTRAR
+      </button>
+      <div class="box-buttons-links">
+        <a routerLink="/auth/login">JÁ TEM UMA CONTA?</a>
+      </div>
+    </div>
+  </form>
+
+  <div class="box-logo" routerLink="">
+    <img
+      class="img-fluid"
+      src="../../../../../assets/images/logo/WeFeed_Logo_Principal(sem brackground).png"
+      alt=""
+    />
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<mat-toolbar class="mat-elevation-z2">
+  <button
+    (click)="logOut()"
+    mat-icon-button
+    aria-label="Example icon button with a vertical three dot icon"
+  >
+    <mat-icon>keyboard_backspace</mat-icon>
+  </button>
+  <h3>{{ titleNav }}</h3>
+  <span style="margin: 0 10px"></span>
+</mat-toolbar>
+<div class="container">
+  <mat-tab-group mat-align-tabs="center" headerPosition="below">
+    <mat-tab>
+      <ng-template style="position: fixed; bottom: 0" mat-tab-label>
+        <div (click)="updateTitleNav('Quem somos')" class="icons">
+          <mat-icon class="example-tab-icon">home</mat-icon>
+          <span>Home</span>
+        </div>
+      </ng-template>
+      <div class="body_component">
+        <app-about></app-about>
+      </div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div (click)="updateTitleNav('Pesquisar')" class="icons">
+          <mat-icon class="example-tab-icon">search</mat-icon>
+          Search
+        </div>
+      </ng-template>
+      <div class="body_component">search</div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div (click)="updateTitleNav('Nosso time')" class="icons">
+          <mat-icon class="example-tab-icon">people</mat-icon>
+          Team
+        </div>
+      </ng-template>
+      <div class="body_component">
+        <app-team></app-team>
+      </div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div (click)="updateTitleNav('Perfil')" class="icons">
+          <mat-icon class="example-tab-icon">person</mat-icon>
+          Profile
+        </div>
+      </ng-template>
+      <div class="body_component">person</div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
