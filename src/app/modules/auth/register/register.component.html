@@ -2,7 +2,7 @@
   <h3 class="title">Inscrever-se</h3>
   <form [formGroup]="formRegister" (ngSubmit)="register()">
     <div class="form-group has-error">
-      <label for="email">Email</label>
+      <label for="email">E-mail</label>
       <input
         formControlName="email"
         autocomplete="off"
@@ -16,10 +16,10 @@
           'is-valid': !formRegister.controls.email.errors
         }"
       />
-      <div class="invalid-feedback">Please, provide a valid email.</div>
+      <div class="invalid-feedback">Por favor, informe um e-mail válido.</div>
     </div>
     <div class="form-group">
-      <label for="password">Password</label>
+      <label for="password">Senha</label>
       <input
         formControlName="pwd"
         autocomplete="off"
@@ -33,12 +33,12 @@
         }"
       />
       <div *ngIf="formRegister.controls?.pwd?.errors" class="invalid-feedback">
-        Please, provide a valid password (6-12 characters).
+        Por favor, informe uma senha válida (6-12 caracteres).
       </div>
     </div>
 
     <div class="form-group">
-      <label for="fullname">Full Name</label>
+      <label for="fullname">Nome completo</label>
       <input
         formControlName="fullName"
         autocomplete="off"
@@ -55,7 +55,7 @@
         *ngIf="formRegister.controls?.fullName?.errors"
         class="invalid-feedback"
       >
-        Please, enter your <strong>Full Name.</strong>
+        Por favor, informe seu <strong>nome completo.</strong>
       </div>
     </div>
 

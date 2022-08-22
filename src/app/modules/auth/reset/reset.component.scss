@@ -17,6 +17,9 @@
       margin-top: 20px;
       color: #646464;
     }
+
+    a {
+    }
   }
 
   &-buttons {
@@ -37,6 +40,7 @@
       background-color: #fec00e;
       border-radius: 20px;
       color: #000;
+      font-size: 16px;
     }
 
     &-links {
@@ -53,4 +57,9 @@
       }
     }
   }
+}
+
+.btn-disabled {
+  background-color: #9999997e !important;
+  color: white !important;
 }

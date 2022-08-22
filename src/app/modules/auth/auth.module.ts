@@ -8,6 +8,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetComponent } from './reset/reset.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ResetComponent } from './reset/reset.component';
     AuthRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ]
 })
 export class AuthModule { }

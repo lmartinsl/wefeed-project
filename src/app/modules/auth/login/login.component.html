@@ -15,7 +15,7 @@
         }"
       />
       <div *ngIf="formLogin.controls?.email?.errors" class="invalid-feedback">
-        Please, provide a valid email.
+        Por favor, informe um e-mail válido.
       </div>
     </div>
     <div class="form-group">
@@ -32,7 +32,7 @@
         }"
       />
       <div *ngIf="formLogin.controls?.pwd?.errors" class="invalid-feedback">
-        Please, provide a valid password (6-12 characters).
+        Por favor, informe uma senha válida. (6-12 caracteres).
       </div>
     </div>
 
@@ -43,7 +43,7 @@
         type="submit"
         mat-raised-button
       >
-        LOGIN
+        ENTRAR
       </button>
       <div class="box-buttons-links">
         <a routerLink="/auth/reset">ESQUECEU A SENHA?</a>

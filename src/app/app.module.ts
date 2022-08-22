@@ -10,6 +10,7 @@ import { MaterialModule } from './material.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
+    HttpClientModule,
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,

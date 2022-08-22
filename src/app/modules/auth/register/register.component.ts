@@ -1,7 +1,7 @@
-import { Router } from '@angular/router';
-import { User } from 'src/app/interfaces/user';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from 'src/app/interfaces/user';
 import { AuthService } from './../../../services/auth.service';
 
 @Component({
@@ -50,7 +50,6 @@ export class RegisterComponent implements OnInit {
           setTimeout(() => this.router.navigateByUrl('auth/login'), 2000)
         } else {
           this.authService.showSnackbar(res.msg, 'Error')
-          this.formRegister.reset();
         }
       })
   }

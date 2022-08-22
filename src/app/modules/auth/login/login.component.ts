@@ -1,8 +1,8 @@
-import { User } from 'src/app/interfaces/user';
-import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/interfaces/user';
+import { AuthService } from './../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
 
   public formLogin: FormGroup;
   public hasMsgErrorLoginAndPwd: boolean = false;
-  private mockLoginPwd = { login: 'lucas@hotmail.com', pwd: 'lucas123' };
 
   constructor(
     private readonly fb: FormBuilder,
