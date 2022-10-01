@@ -21,22 +21,30 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16
+          
+      - name: Install dependencies
+        run: npm install
+
+      # - name: Run tests
+      #   run: npm run test:headless
+
+      - name: Build
+        run: npm run build:prod
 
   Deploy:
     runs-on: ubuntu-latest
     needs: Build
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        
       - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: AKIAXD5D5PRTRDVY7JHY
           aws-secret-access-key: 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
           aws-region: sa-east-1
-
-      - name: Deploy in S3
-        uses: reggionick/s3-deploy@v3
-        with:
-          folder: build
-          bucket: we-feed-angular-app
-          bucket-region: sa-east-1
-          private: true
+      
+      - name: Deploy
+        if: success()
+        run: aws s3 sync ./dist s3://we-feed-angular-app
