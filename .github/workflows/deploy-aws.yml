@@ -29,14 +29,14 @@ jobs:
       - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: AKIAXD5D5PRTRDVY7JHY
+          aws-secret-access-key: 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
           aws-region: sa-east-1
 
       - name: Deploy in S3
         uses: reggionick/s3-deploy@v3
         with:
           folder: build
-          bucket: ${{ secrets.S3_BUCKET }}
-          bucket-region: ${{ secrets.S3_BUCKET_REGION }} #sa-east-1
+          bucket: we-feed-angular-app
+          bucket-region: sa-east-1
           private: true
