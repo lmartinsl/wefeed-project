@@ -1,0 +1,20 @@
+<div class="box-about">
+    <img
+      class="img-fluid"
+      src="../../../../assets/images/others/step_one.png"
+      alt=""
+    />
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vel soluta? Dolorum eum, accusantium illum iste voluptatem temporibus vel autem labore sed debitis molestias reprehenderit non ipsum quaerat culpa voluptatum?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vel soluta? Dolorum eum, accusantium illum iste voluptatem temporibus vel autem labore sed debitis molestias reprehenderit non ipsum quaerat culpa voluptatum?
+  </p>
+  <div *ngIf="!(authService.hasAuth$ | async)" class="box-button">
+    <button routerLink="/auth/login" mat-raised-button>
+      <span>PULAR</span>
+    </button>
+
+    <button routerLink="/auth/step-two" mat-raised-button>
+      <span>AVANÇAR</span>
+    </button>
+  </div>
+</div>

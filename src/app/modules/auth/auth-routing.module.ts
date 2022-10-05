@@ -1,6 +1,8 @@
-import { AboutComponent } from './../main/about/about.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { StepOneComponent } from '../main/step-one/step-one.component';
+import { StepThreeComponent } from '../main/step-three/step-three.component';
+import { StepTwoComponent } from '../main/step-two/step-two.component';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -11,7 +13,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'reset', component: ResetComponent },
-  { path: 'about', component: AboutComponent }
+  { path: 'step-one', component: StepOneComponent },
+  { path: 'step-two', component: StepTwoComponent },
+  { path: 'step-three', component: StepThreeComponent },
 ];
 
 @NgModule({

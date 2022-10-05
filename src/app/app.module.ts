@@ -23,7 +23,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

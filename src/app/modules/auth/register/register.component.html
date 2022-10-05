@@ -1,48 +1,18 @@
 <div class="box">
-  <h3 class="title">Inscrever-se</h3>
+  <div class="box-logo">
+    <img
+      class="img-fluid"
+      src="../../../../../assets/images/logo/logo.png"
+      alt=""
+    />
+  </div>
+  <h3 class="title">Cadastro</h3>
   <form [formGroup]="formRegister" (ngSubmit)="register()">
-    <div class="form-group has-error">
-      <label for="email">Email</label>
-      <input
-        formControlName="email"
-        autocomplete="off"
-        placeholder="Enter email..."
-        type="email"
-        class="form-control"
-        id="email"
-        aria-describedby="email"
-        [ngClass]="{
-          'is-invalid': formRegister.controls.email.errors,
-          'is-valid': !formRegister.controls.email.errors
-        }"
-      />
-      <div class="invalid-feedback">Please, provide a valid email.</div>
-    </div>
     <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        formControlName="pwd"
-        autocomplete="off"
-        placeholder="Enter password..."
-        type="password"
-        class="form-control"
-        id="password"
-        [ngClass]="{
-          'is-invalid': formRegister.controls.pwd.errors,
-          'is-valid': !formRegister.controls.pwd.errors
-        }"
-      />
-      <div *ngIf="formRegister.controls?.pwd?.errors" class="invalid-feedback">
-        Please, provide a valid password (6-12 characters).
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="fullname">Full Name</label>
       <input
         formControlName="fullName"
         autocomplete="off"
-        placeholder="Enter full name..."
+        placeholder="Digite seu nome"
         type="text"
         class="form-control"
         id="fullname"
@@ -55,9 +25,84 @@
         *ngIf="formRegister.controls?.fullName?.errors"
         class="invalid-feedback"
       >
-        Please, enter your <strong>Full Name.</strong>
+        Por favor, digite seu <strong>Nome Completo.</strong>
       </div>
     </div>
+
+    <div class="form-group">
+      <input
+        formControlName="fullName"
+        autocomplete="off"
+        placeholder="Digite seu telefone"
+        type="text"
+        class="form-control"
+        id="fullname"
+        [ngClass]="{
+          'is-invalid': formRegister.controls.fullName.errors,
+          'is-valid': !formRegister.controls.fullName.errors
+        }"
+      />
+      <div
+        *ngIf="formRegister.controls?.fullName?.errors"
+        class="invalid-feedback"
+      >
+        Por favor, digite seu <strong>Telefone.</strong>
+      </div>
+    </div>
+
+
+    <div class="form-group has-error">
+      <select class="form-control "  [ngClass]="{
+        'is-invalid': formRegister.controls.email.errors,
+        'is-valid': !formRegister.controls.email.errors
+      }">
+        <option>Empresa</option>
+        <option>Ong</option>
+        <option>Pessoa Fisica</option>
+      </select>
+      <div
+        *ngIf="formRegister.controls?.fullName?.errors"
+        class="invalid-feedback"
+      >
+        Por favor, selecione uma <strong>Opção.</strong>
+      </div>
+    </div>
+    
+    <div class="form-group has-error">
+      <input
+        formControlName="email"
+        autocomplete="off"
+        placeholder="Digite seu e-mail"
+        type="email"
+        class="form-control"
+        id="email"
+        aria-describedby="email"
+        [ngClass]="{
+          'is-invalid': formRegister.controls.email.errors,
+          'is-valid': !formRegister.controls.email.errors
+        }"
+      />
+      <div class="invalid-feedback">Por favor, digite seu e-mail.</div>
+    </div>
+    <div class="form-group">
+      <input
+        formControlName="pwd"
+        autocomplete="off"
+        placeholder="Digite sua senha"
+        type="password"
+        class="form-control"
+        id="password"
+        [ngClass]="{
+          'is-invalid': formRegister.controls.pwd.errors,
+          'is-valid': !formRegister.controls.pwd.errors
+        }"
+      />
+      <div *ngIf="formRegister.controls?.pwd?.errors" class="invalid-feedback">
+        Por favor, forneça uma senha válida (6-12 caracteres).
+      </div>
+    </div>
+
+   
 
     <div class="box-buttons">
       <button
@@ -66,19 +111,11 @@
         type="submit"
         mat-raised-button
       >
-        REGISTRAR
+        CADASTRAR
       </button>
       <div class="box-buttons-links">
-        <a routerLink="/auth/login">JÁ TEM UMA CONTA?</a>
+        <a routerLink="/auth/login">Já possui cadastro?</a>
       </div>
     </div>
   </form>
-
-  <div class="box-logo" routerLink="">
-    <img
-      class="img-fluid"
-      src="../../../../../assets/images/logo/WeFeed_Logo_Principal(sem brackground).png"
-      alt=""
-    />
-  </div>
 </div>

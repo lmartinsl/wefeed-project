@@ -3,11 +3,11 @@ import { AuthComponent } from './../../auth/auth.component';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  selector: 'app-step-one',
+  templateUrl: './step-one.component.html',
+  styleUrls: ['./step-one.component.scss']
 })
-export class AboutComponent implements OnInit {
+export class StepOneComponent implements OnInit {
 
   constructor(
     public authService: AuthService

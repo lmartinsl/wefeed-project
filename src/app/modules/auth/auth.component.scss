@@ -41,13 +41,15 @@ $lg: "1200px";
     margin-top: 40px;
     display: flex;
     flex-direction: column;
-    width: 100%;
     text-align: center;
+    align-items: center;
 
     button {
       background-color: #6a8d4a;
-      border-radius: 20px;
+      border-radius: 10px;
+      height: 40px;
       color: white;
+      width: 80%;
     }
 
     a {

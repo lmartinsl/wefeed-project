@@ -6,10 +6,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './main.component';
 import { TeamComponent } from './team/team.component';
 import { MainRoutingModule } from './main-routing.module';
-import { AboutComponent } from './about/about.component';
+import { StepOneComponent } from './step-one/step-one.component';
+import { StepTwoComponent } from './step-two/step-two.component';
+import { StepThreeComponent } from './step-three/step-three.component';
 
 @NgModule({
-  declarations: [MainComponent, TeamComponent, AboutComponent],
+  declarations: [MainComponent, TeamComponent, StepOneComponent, StepTwoComponent, StepThreeComponent],
   imports: [
     CommonModule,
     MainRoutingModule,

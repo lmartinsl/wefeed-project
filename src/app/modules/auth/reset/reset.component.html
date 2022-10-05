@@ -1,1 +1,40 @@
-<p>reset works!</p>
+<div class="box">
+    <div class="header">
+        <a routerLink="/auth/login">
+            <img
+            class="icon-header"
+            src="../../../../../assets/icons/left-arrow.png"
+            alt=""
+            />
+        </a>
+
+      
+    </div>
+    <div class="box-logo">
+      <img
+        class="img-fluid"
+        src="../../../../../assets/images/logo/logo.png"
+        alt=""
+      />
+    </div>
+    <h3 class="title">Recuperar Senha</h3>
+    <form class="form-group">
+        <input
+          placeholder="Digite seu e-mail"
+          formControlName="email"
+          type="email"
+          class="form-control"
+          id="email"
+        />
+      
+      <div class="box-buttons">
+        <button
+          type="submit"
+          mat-raised-button
+        >
+          RECUPERAR
+        </button>
+      </div>
+    </form>
+</div>
+  
