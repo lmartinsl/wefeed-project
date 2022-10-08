@@ -46,14 +46,15 @@
 
     </div>
 
+    <!-- [ngClass]="{ 'btn-disabled': formLogin.invalid }"
+        [disabled]="formLogin.invalid" -->
+
     <div class="box-buttons">
       <button
-        [ngClass]="{ 'btn-disabled': formLogin.invalid }"
-        [disabled]="formLogin.invalid"
         type="submit"
         mat-raised-button
       >
-        ACESSAR
+        <a style="text-decoration: none; color: #FFF;" routerLink="/auth/categories">ACESSAR</a>
       </button>
       <div class="box-buttons-links">
         <a routerLink="/auth/register">Não possui cadastro?</a>

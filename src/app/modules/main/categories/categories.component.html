@@ -1,0 +1,96 @@
+<div class="header">
+  <h5 class="headerTitle">WeFeed</h5>
+</div>
+<div class="">
+    <mat-tab-group mat-align-tabs="center" headerPosition="below">
+      <mat-tab>
+        <ng-template style="position: fixed; bottom: 0" mat-tab-label>
+          <div (click)="updateTitleNav('Quem somos')" class="icons">
+            <mat-icon class="example-tab-icon">home</mat-icon>
+            <span>Home</span>
+          </div>
+        </ng-template>
+        
+        <div class="content">
+            
+            <div class="container-fluid">
+                <h5 class="title">Categorias</h5>
+                <div class="body_component">
+                    <div class="input-group mt-5">
+                        <input type="text" class="form-control search" placeholder="Pesquise aqui uma categoria..." aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                </div>
+                <div class="row mt-5 mb-3 justify-content-around">
+                  <div class="col-6">
+                    <div class="card">
+                      <img class="card-img-top" src="https://img.freepik.com/fotos-premium/varios-tipos-de-graos-e-cereais-naturais_333900-1053.jpg" alt="Card image cap">
+                      <div class="card-body">
+                        <a class="card-title linkCategories" href="">Arroz</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="card">
+                      <img class="card-img-top" src="https://img.freepik.com/fotos-premium/varios-tipos-de-graos-e-cereais-naturais_333900-1053.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <a class="card-title linkCategories" href="">Feijão</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-5 justify-content-around">
+                  <div class="col-6">
+                    <div class="card">
+                      <img class="card-img-top" src="https://img.freepik.com/fotos-premium/varios-tipos-de-graos-e-cereais-naturais_333900-1053.jpg" alt="Card image cap">
+                      <div class="card-body">
+                        <a class="card-title linkCategories" href="">Vegetais</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="card">
+                      <img class="card-img-top" src="https://img.freepik.com/fotos-premium/varios-tipos-de-graos-e-cereais-naturais_333900-1053.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <a class="card-title linkCategories" href="">Frutas</a>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            
+        </div>
+      </mat-tab>
+  
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <div (click)="updateTitleNav('Pesquisar')" class="icons">
+            <mat-icon class="example-tab-icon">search</mat-icon>
+            Pesquisar
+          </div>
+        </ng-template>
+       <app-search></app-search>
+      </mat-tab>
+  
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <div (click)="updateTitleNav('Nosso time')" class="icons">
+            <mat-icon class="example-tab-icon">person</mat-icon>
+            Suporte
+          </div>
+        </ng-template>
+        <div class="body_component">
+          <app-team></app-team>
+        </div>
+      </mat-tab>
+  
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <div (click)="logOut()" class="icons">
+            <mat-icon class="example-tab-icon">close</mat-icon>
+            Sair
+          </div>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  

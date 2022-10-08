@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         if (status.login) {
           this.authService.showSnackbar(status.status, 'Success')
           setTimeout(() => {
-            this.router.navigateByUrl('main')
+            this.router.navigateByUrl('categories')
           }, 2000)
         } else {
           this.authService.showSnackbar(status.status, 'Error')
