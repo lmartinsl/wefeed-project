@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - ci/configuracao-pipeline-aws
+      - changelayout
+      - develop
   pull_request:
     branches:
       - ci/configuracao-pipeline-aws
