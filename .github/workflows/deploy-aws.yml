@@ -1,0 +1,67 @@
+# Nome do Workflow
+name: DevSecOps Pipeline
+
+# Evento que irá acionar a pipeline
+on:
+  push:
+    branches:
+      - changelayout
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  Execution:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: a2e5ffa4d7d85103373f757382c251c67daad73d
+
+      - name:  Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          
+      - name: Cache node modules
+        id: cache-nodemodules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # caching node_modules
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install dependencies
+        if:
+          steps.cache-nodemodules.outputs.cache-hit != 'true'
+        run: npm install
+
+      # - name: Run tests
+      #   run: npm run test:headless
+
+      - name: Build
+        run: npm run build:prod
+        
+      - name: Set AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: AKIAXD5D5PRTRDVY7JHY
+          aws-secret-access-key: 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
+          aws-region: sa-east-1
+      
+      - name: Deploy
+        if: success()
+        run: aws s3 sync ./dist/we-feed/ s3://we-feed-angular-app
+
+
