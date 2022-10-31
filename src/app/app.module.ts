@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MaterialModule } from './material.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -17,6 +19,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,

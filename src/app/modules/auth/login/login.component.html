@@ -15,6 +15,7 @@
         type="email"
         class="form-control"
         id="email"
+        autocomplete="off"
         [ngClass]="{
           'is-invalid': formLogin.controls.email.errors,
           'is-valid': !formLogin.controls.email.errors
@@ -31,6 +32,7 @@
         type="password"
         class="form-control"
         id="password"
+        autocomplete="off"
         [ngClass]="{
           'is-invalid': formLogin.controls.pwd.errors,
           'is-valid': !formLogin.controls.pwd.errors
@@ -53,8 +55,9 @@
       <button
         type="submit"
         mat-raised-button
+        (onclick)="login()"
       >
-        <a style="text-decoration: none; color: #FFF;" routerLink="/auth/categories">ACESSAR</a>
+        <a style="text-decoration: none; color: #FFF;">ACESSAR</a>
       </button>
       <div class="box-buttons-links">
         <a routerLink="/auth/register">Não possui cadastro?</a>

@@ -36,12 +36,13 @@ export class LoginComponent implements OnInit {
   public login(): void {
     const { email, pwd } = this.formLogin.controls
     const user: User = { email: email.value, pwd: pwd.value }
+
     this.authService.login(user)
       .subscribe((status) => {
         if (status.login) {
           this.authService.showSnackbar(status.status, 'Success')
           setTimeout(() => {
-            this.router.navigateByUrl('categories')
+            this.router.navigateByUrl('main/categories')
           }, 2000)
         } else {
           this.authService.showSnackbar(status.status, 'Error')
