@@ -38,15 +38,11 @@ export class LoginComponent implements OnInit {
     const user: User = { email: email.value, pwd: pwd.value }
 
     this.authService.login(user)
-      .subscribe((status) => {
-        if (status.login) {
-          this.authService.showSnackbar(status.status, 'Success')
+      .subscribe((response) => {
+          this.authService.showSnackbar(`Olá ${response.name}`, 'Success')
           setTimeout(() => {
             this.router.navigateByUrl('main/categories')
           }, 2000)
-        } else {
-          this.authService.showSnackbar(status.status, 'Error')
-        }
-      })
+      }, () => this.authService.showSnackbar(`Ops, algo deu errado.`, 'Error') )
   }
 }

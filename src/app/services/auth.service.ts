@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { BehaviorSubject, Observable, of, scheduled, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ILoginResponse } from '../interfaces/login-response';
 import { User } from '../interfaces/user';
 import { AuthApi } from './auth.constants';
 
@@ -24,7 +25,7 @@ export class AuthService {
     return of(this.mockLoginPwd)
   }
 
-  public login(user: User): Observable<{ login: boolean, status: string }> {
+  public login(user: User): Observable<ILoginResponse> {
       const headers = AuthApi.ACCEPTED
       const body = {
         login: user.email,
@@ -35,10 +36,9 @@ export class AuthService {
       return (this.http.post(AuthApi.LOGIN, body)
       .pipe(
         map(
-        response => {
+        (response: ILoginResponse) => {
           this.hasAuthenticated$.next(true)
-          const successResponse = { status: `Olá ${response.name} !`, login: true }
-          return successResponse
+          return response
         })
       ));
     
