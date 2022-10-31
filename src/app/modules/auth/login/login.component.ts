@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
           this.authService.showSnackbar(`Olá ${response.name}`, 'Success')
           setTimeout(() => {
             this.router.navigateByUrl('main/categories')
-          }, 2000)
+          }, 200)
       }, () => this.authService.showSnackbar(`Ops, algo deu errado.`, 'Error') )
   }
 }
