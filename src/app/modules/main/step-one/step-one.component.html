@@ -5,10 +5,22 @@
       alt=""
     />
   <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vel soluta? Dolorum eum, accusantium illum iste voluptatem temporibus vel autem labore sed debitis molestias reprehenderit non ipsum quaerat culpa voluptatum?
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vel soluta? Dolorum eum, accusantium illum iste voluptatem temporibus vel autem labore sed debitis molestias reprehenderit non ipsum quaerat culpa voluptatum?
+    <strong>Nossa missão</strong>  
+    é de proporcionar a melhor experiência ao usuario do nosso app, oferecendo a oportunidade da troca ágil e segura, garantindo que mais pessoas possam ter uma alimentação digna em sua mesa, ajustando às necessidades de cada pessoa,  tanto de quem precisa quanto de quem pode doar.
   </p>
-  <div *ngIf="!(authService.hasAuth$ | async)" class="box-button">
+
+  <p>
+    <strong>Nossa visão</strong> 
+    é de nos tornar referência de app que mais ajuda a diminuir a fome.
+  </p>
+
+  <p>
+    <strong>Nossos valores</strong> 
+    abrangem confiança, ética, comprometimento, qualidade e ajuda ao próximo.
+  </p>
+    
+
+    <div *ngIf="!(authService.hasAuth$ | async)" class="box-button">
     <button routerLink="/auth/login" mat-raised-button>
       <span>PULAR</span>
     </button>
