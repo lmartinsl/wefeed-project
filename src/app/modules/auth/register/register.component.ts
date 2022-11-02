@@ -31,27 +31,29 @@ export class RegisterComponent implements OnInit {
       email: ['', [required, email]],
       pwd: ['', [required, minLength(6), maxLength(12)]],
       fullName: ['', [required, minLength(8)]],
+      profile: ['', [required]],
+      telephone: ['', [required, minLength(8)]],
+
     })
   }
 
   public register(): void {
-
-    const { email, pwd, fullName } = this.formRegister.controls
+    const { email, pwd, fullName, profile, telephone  } = this.formRegister.controls
     const user: User = {
       email: email.value,
       pwd: pwd.value,
       fullName: fullName.value,
+      profile: profile.value,
+      telephone: telephone.value
     }
 
     this.authService.register(user)
-      .subscribe((res) => {
-        if (res.status) {
-          this.authService.showSnackbar(res.msg, 'Success')
+      .subscribe((response) => {
+          this.authService.showSnackbar(`Tudo certo ${user.fullName}`, 'Success')
           setTimeout(() => this.router.navigateByUrl('auth/login'), 2000)
-        } else {
-          this.authService.showSnackbar(res.msg, 'Error')
-          this.formRegister.reset();
-        }
+      }, ()=> {
+        this.authService.showSnackbar(`Ops, algo saiu do controle :S`, 'Error')
+        this.formRegister.reset();
       })
   }
 }

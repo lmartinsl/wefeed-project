@@ -4,8 +4,10 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { BehaviorSubject, Observable, of, scheduled, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ILoginResponse } from '../interfaces/login-response';
+import { IRegisterResponse } from '../interfaces/register-response';
 import { User } from '../interfaces/user';
 import { AuthApi } from './auth.constants';
+import { UserProfile } from './auth.enums';
 
 @Injectable({
   providedIn: 'root'
@@ -49,14 +51,25 @@ export class AuthService {
     return i >= 0 ? { hasRegistered: true, index: i } : null
   }
 
-  public register(user: User): Observable<{ msg: string, status: boolean }> {
-    const i = this.mockLoginPwd.findIndex((u: User) => u.email === user.email)
-    if (i >= 0) {
-      return of({ msg: 'Usuário já existe.', status: false })
-    } else {
-      this.mockLoginPwd.push(user)
-      return of({ msg: 'Usuário cadastrado.', status: true })
+  public register(user: User): Observable<IRegisterResponse> {
+    const headers = AuthApi.ACCEPTED
+    const body = {
+        email: user.email,
+        pass: user.pwd,
+        telephone: user.telephone,
+        cpf: "11111122231",
+        profile: UserProfile[user.profile],
+        name: user.fullName
     }
+
+    return (this.http.put(AuthApi.REGISTER, body)
+    .pipe(
+      map(
+      (response: IRegisterResponse) => {
+        this.hasAuthenticated$.next(true)
+        return response
+      })
+    ));
 
   }
 

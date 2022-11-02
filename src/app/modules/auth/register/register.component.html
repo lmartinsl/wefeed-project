@@ -31,19 +31,19 @@
 
     <div class="form-group">
       <input
-        formControlName="fullName"
+        formControlName="telephone"
         autocomplete="off"
         placeholder="Digite seu telefone"
         type="text"
         class="form-control"
-        id="fullname"
+        id="telephone"
         [ngClass]="{
-          'is-invalid': formRegister.controls.fullName.errors,
-          'is-valid': !formRegister.controls.fullName.errors
+          'is-invalid': formRegister.controls.telephone.errors,
+          'is-valid': !formRegister.controls.telephone.errors
         }"
       />
       <div
-        *ngIf="formRegister.controls?.fullName?.errors"
+        *ngIf="formRegister.controls?.telephone?.errors"
         class="invalid-feedback"
       >
         Por favor, digite seu <strong>Telefone.</strong>
@@ -52,16 +52,19 @@
 
 
     <div class="form-group has-error">
-      <select class="form-control "  [ngClass]="{
-        'is-invalid': formRegister.controls.email.errors,
-        'is-valid': !formRegister.controls.email.errors
-      }">
+      <select class="form-control "  
+      [ngClass]="{
+        'is-invalid': formRegister.controls.profile.errors,
+        'is-valid': !formRegister.controls.profile.errors
+      }"
+      formControlName="profile"
+      >
         <option>Empresa</option>
         <option>Ong</option>
         <option>Pessoa Fisica</option>
       </select>
       <div
-        *ngIf="formRegister.controls?.fullName?.errors"
+        *ngIf="formRegister.controls?.profile?.errors"
         class="invalid-feedback"
       >
         Por favor, selecione uma <strong>Opção.</strong>
