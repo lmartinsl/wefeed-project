@@ -1,7 +1,7 @@
 export class AuthApi {
-    static readonly BASE_URL= 'https://we-feed-api.sa-east-1.elasticbeanstalk.com';
-    static readonly LOGIN= 'https://we-feed-api.sa-east-1.elasticbeanstalk.com/auth';
-    static readonly REGISTER= 'https://we-feed-api.sa-east-1.elasticbeanstalk.com/user/create';
+    static readonly BASE_URL= 'https://api.wefeed.click';
+    static readonly LOGIN= 'https://api.wefeed.click/auth';
+    static readonly REGISTER= 'https://api.wefeed.click/user/create';
     static readonly ACCEPTED= 'application/json';
 
 }
