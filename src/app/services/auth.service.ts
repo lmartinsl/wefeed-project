@@ -8,6 +8,8 @@ import { IRegisterResponse } from '../interfaces/register-response';
 import { User } from '../interfaces/user';
 import { AuthApi } from './auth.constants';
 import { UserProfile } from './auth.enums';
+import { JWTTokenService } from './jwt/jwt-token.service';
+import { LocalStorageService } from './local-storage/local-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +22,18 @@ export class AuthService {
 
   constructor(
     private readonly snackbar: MatSnackBar,
-    private http: HttpClient
+    private http: HttpClient,
+    private storage: LocalStorageService,
+    private jwt: JWTTokenService
       ) { }
 
   public getUsers(): Observable<User[]> {
     return of(this.mockLoginPwd)
+  }
+
+  public isTokenNecessary(url: string){
+    return url === AuthApi.LOGIN || AuthApi.REGISTER ? false : true
+
   }
 
   public login(user: User): Observable<ILoginResponse> {
@@ -40,6 +49,8 @@ export class AuthService {
         map(
         (response: ILoginResponse) => {
           this.hasAuthenticated$.next(true)
+          this.storage.set('token', response.token);
+          this.jwt.setToken(response.token);
           return response
         })
       ));

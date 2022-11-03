@@ -1,6 +1,7 @@
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthorizeGuard } from './services/auth-guard/auth-guard.service';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
   },
   {
     path: 'main',
-    loadChildren: () => import('./modules/main/main.module').then(m => m.MainModule)
+    loadChildren: () => import('./modules/main/main.module').then(m => m.MainModule),
+    canActivate: [AuthorizeGuard]
   },
   { path: '**', component: NotFoundComponent }
 ];
