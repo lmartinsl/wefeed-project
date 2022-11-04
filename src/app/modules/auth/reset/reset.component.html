@@ -17,24 +17,101 @@
         alt=""
       />
     </div>
-    <h3 class="title">Recuperar Senha</h3>
-    <form class="form-group">
-        <input
-          placeholder="Digite seu e-mail"
-          formControlName="email"
-          type="email"
-          class="form-control"
-          id="email"
-        />
-      
-      <div class="box-buttons">
-        <button
-          type="submit"
-          mat-raised-button
+    <section id="validate-user" *ngIf="!showResetSection">
+      <h3 class="title">Recuperar Senha</h3>
+      <form class="form-group" [formGroup]="formEmail" (ngSubmit)="validateUserEmail()">
+          <input
+            formControlName="email"
+            placeholder="Digite seu e-mail"
+            type="email"
+            class="form-control"
+            id="email"
+            [ngClass]="{
+              'is-invalid': formEmail.controls['email'].invalid && formEmail.controls['email'].touched,
+              'is-valid': formEmail.controls['email'].valid
+            }"
+          />
+          <div
+          *ngIf="formEmail.controls.email.errors"
+          class="invalid-feedback"
         >
-          RECUPERAR
-        </button>
+        Por favor, digite seu e-mail    
       </div>
-    </form>
+        
+        <div class="box-buttons">
+          <button
+          [ngClass]="{ 'btn-disabled': formEmail.invalid }"
+          [disabled]="formEmail.invalid"
+            type="submit"
+            mat-raised-button
+          >
+            RECUPERAR
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section id="reset-user-password" *ngIf="showResetSection">
+      <h3 class="title">Resetar Senha</h3>
+      <form class="form-group" [formGroup]="formPassword"  (ngSubmit)="resetUserPassword()">
+          <input
+            formControlName="password"
+            placeholder="Digite sua nova senha"
+            type="password"
+            class="form-control"
+            id="password"
+            autocomplete="off"
+            (blur)="setNewPassword()"
+            [ngClass]="{
+              'is-invalid': formPassword.controls['password'].invalid && formPassword.controls['password'].touched,
+              'is-valid': formPassword.controls['password'].valid
+            }"
+          />
+          <div
+          *ngIf="formPassword.controls.password.errors"
+          class="invalid-feedback"
+        >
+        Por favor, forneça uma senha válida (6-12 caracteres)    
+      </div>
+
+          <input
+          formControlName="passwordRepeated"
+          placeholder="Repita sua nova senha"
+          type="password"
+          class="form-control"
+          id="passwordRepeated"
+          autocomplete="off"
+          (blur)="checkPasswordSimilarity()"
+          [ngClass]="{
+            'is-invalid': formPassword.controls['passwordRepeated'].invalid && formPassword.controls['passwordRepeated'].touched,
+            'is-valid': formPassword.controls['passwordRepeated'].valid
+          }"
+        />
+        <div
+        *ngIf="formPassword.controls.passwordRepeated.errors || !isPasswordSimilar"
+        class="invalid-feedback"
+      >
+      <p *ngIf="formPassword.controls.passwordRepeated.errors">
+        Por favor, forneça uma senha válida (6-12 caracteres)
+      </p>
+      
+      <p *ngIf="!isPasswordSimilar && formPassword.controls['passwordRepeated'].touched">
+        As senhas não são iguais
+      </p>  
+    </div>
+        
+        <div class="box-buttons">
+          <button
+          [ngClass]="{ 'btn-disabled': formPassword.invalid }"
+          [disabled]="formPassword.invalid"
+            type="submit"
+            mat-raised-button
+          >
+            TROCAR SENHA
+          </button>
+        </div>
+      </form>
+    </section>
+
 </div>
   

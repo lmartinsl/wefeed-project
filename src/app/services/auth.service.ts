@@ -1,10 +1,11 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { BehaviorSubject, Observable, of, scheduled, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ILoginResponse } from '../interfaces/login-response';
 import { IRegisterResponse } from '../interfaces/register-response';
+import { IResetPasswordInfo } from '../interfaces/reset.interface';
 import { User } from '../interfaces/user';
 import { AuthApi } from './auth.constants';
 import { UserProfile } from './auth.enums';
@@ -36,6 +37,12 @@ export class AuthService {
 
   }
 
+  
+  private checkListUser(user: User): { hasRegistered: boolean, index: number } {
+    const i = this.mockLoginPwd.findIndex((u: User) => u.email === user.email)
+    return i >= 0 ? { hasRegistered: true, index: i } : null
+  }
+
   public login(user: User): Observable<ILoginResponse> {
       const headers = AuthApi.ACCEPTED
       const body = {
@@ -57,11 +64,6 @@ export class AuthService {
     
   }
 
-  private checkListUser(user: User): { hasRegistered: boolean, index: number } {
-    const i = this.mockLoginPwd.findIndex((u: User) => u.email === user.email)
-    return i >= 0 ? { hasRegistered: true, index: i } : null
-  }
-
   public register(user: User): Observable<IRegisterResponse> {
     const headers = AuthApi.ACCEPTED
     const body = {
@@ -81,7 +83,37 @@ export class AuthService {
         return response
       })
     ));
+  }
 
+  public validate(email: string): Observable<any> {
+    const headers = AuthApi.ACCEPTED
+    const params = new HttpParams().set("email",email)
+
+
+    return (this.http.get(AuthApi.VALIDATE, {params: params})
+    .pipe(
+      map(
+      (response: any) => {
+        this.hasAuthenticated$.next(true)
+        return response
+      })
+    ));
+  }
+
+  public reset(user: IResetPasswordInfo): Observable<IRegisterResponse> {
+    const body = {
+        email: user.email,
+        pass: user.pass,
+    }
+
+    return (this.http.post(AuthApi.RESET, body)
+    .pipe(
+      map(
+      (response: IRegisterResponse) => {
+        this.hasAuthenticated$.next(true)
+        return response
+      })
+    ));
   }
 
   public showSnackbar(msg: string, status: string): void {

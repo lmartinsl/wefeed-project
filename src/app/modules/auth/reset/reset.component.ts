@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-reset',
@@ -6,10 +9,92 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reset.component.scss']
 })
 export class ResetComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  private _newPassword: string;
+  showResetSection: boolean = false;
+  isPasswordSimilar: boolean;
+  userEmail: string;
+  
+  private get newPassword(){
+    return this._newPassword
   }
 
+  private set newPassword(value: string){
+     this._newPassword = value
+  }
+
+  public formEmail: FormGroup
+  public formPassword: FormGroup
+
+
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private readonly fb: FormBuilder,
+
+  ) { }
+
+  ngOnInit(): void {
+    this.createEmailInputForm()
+  }
+
+  createEmailInputForm() {
+    const { email, minLength, maxLength, required } = Validators
+    this.formEmail = this.fb.group({
+      email: ['', [email, required]]
+    })
+  }
+
+  createPasswordInputForm() {
+    const {minLength, maxLength, required } = Validators
+    this.formPassword = this.fb.group({
+      password: ['', [required, minLength(6), maxLength(12)]],
+      passwordRepeated: ['', [required, minLength(6), maxLength(12)]]
+    })
+  }
+
+  setNewPassword(){
+    const { password } = this.formPassword.controls
+    this.newPassword = password.value
+  }
+
+  checkPasswordSimilarity(){
+    const { passwordRepeated } = this.formPassword.controls
+    this.isPasswordSimilar = (this.newPassword === passwordRepeated.value)
+  }
+
+  validateUserEmail(){
+    const { email } = this.formEmail.controls
+    this.userEmail = email.value;
+
+
+ 
+    this.auth.validate(email.value).subscribe(
+      () => {
+      this.showResetSection = true
+      this.createPasswordInputForm()
+    },
+      error => { 
+        this.auth.showSnackbar(`Email incorreto. Verifique novamente`, 'Error')
+        console.log(error)
+      }
+    )
+  }
+
+  resetUserPassword(){
+    const resetInfo = {
+      email: this.userEmail,
+      pass: this.newPassword
+    }
+
+    this.auth.reset(resetInfo).subscribe(
+      () => {
+        this.auth.showSnackbar(`Senha resetada com sucesso!`, 'Success');
+        this.router.navigateByUrl('auth/login')
+      },
+      error => {
+        this.auth.showSnackbar(`Algo deu errado, tente novamente`, 'Error')
+        console.log(error)
+      }
+    )
+  }
 }

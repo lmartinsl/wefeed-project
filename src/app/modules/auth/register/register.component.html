@@ -17,8 +17,8 @@
         class="form-control"
         id="fullname"
         [ngClass]="{
-          'is-invalid': formRegister.controls.fullName.errors,
-          'is-valid': !formRegister.controls.fullName.errors
+          'is-invalid': formRegister.controls['fullName'].invalid && formRegister.controls['fullName'].touched,
+          'is-valid': formRegister.controls['fullName'].valid
         }"
       />
       <div
@@ -38,8 +38,8 @@
         class="form-control"
         id="telephone"
         [ngClass]="{
-          'is-invalid': formRegister.controls.telephone.errors,
-          'is-valid': !formRegister.controls.telephone.errors
+          'is-invalid': formRegister.controls['telephone'].invalid && formRegister.controls['telephone'].touched,
+          'is-valid': formRegister.controls['telephone'].valid
         }"
       />
       <div
@@ -54,11 +54,12 @@
     <div class="form-group has-error">
       <select class="form-control "  
       [ngClass]="{
-        'is-invalid': formRegister.controls.profile.errors,
-        'is-valid': !formRegister.controls.profile.errors
+        'is-invalid': formRegister.controls['profile'].invalid && formRegister.controls['profile'].touched,
+        'is-valid': formRegister.controls['profile'].valid
       }"
       formControlName="profile"
       >
+        <option value="" disabled selected>selecione uma opção</option>
         <option>Empresa</option>
         <option>Ong</option>
         <option>Pessoa Fisica</option>
@@ -81,8 +82,8 @@
         id="email"
         aria-describedby="email"
         [ngClass]="{
-          'is-invalid': formRegister.controls.email.errors,
-          'is-valid': !formRegister.controls.email.errors
+          'is-invalid': formRegister.controls['email'].invalid && formRegister.controls['email'].touched,
+          'is-valid': formRegister.controls['email'].valid
         }"
       />
       <div class="invalid-feedback">Por favor, digite seu e-mail.</div>
@@ -96,8 +97,8 @@
         class="form-control"
         id="password"
         [ngClass]="{
-          'is-invalid': formRegister.controls.pwd.errors,
-          'is-valid': !formRegister.controls.pwd.errors
+          'is-invalid': formRegister.controls['pwd'].invalid && formRegister.controls['pwd'].touched,
+          'is-valid': formRegister.controls['pwd'].valid
         }"
       />
       <div *ngIf="formRegister.controls?.pwd?.errors" class="invalid-feedback">

@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
 
   public formLogin: FormGroup;
   public hasMsgErrorLoginAndPwd: boolean = false;
-  private mockLoginPwd = { login: 'lucas@hotmail.com', pwd: 'lucas123' };
 
   constructor(
     private readonly fb: FormBuilder,

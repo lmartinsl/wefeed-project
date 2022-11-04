@@ -17,11 +17,11 @@
         id="email"
         autocomplete="off"
         [ngClass]="{
-          'is-invalid': formLogin.controls.email.errors,
-          'is-valid': !formLogin.controls.email.errors
+          'is-invalid': formLogin.controls['email'].invalid && formLogin.controls['email'].touched,
+          'is-valid': formLogin.controls['email'].valid
         }"
       />
-      <div *ngIf="formLogin.controls?.email?.errors" class="invalid-feedback">
+      <div *ngIf="formLogin.controls.email.errors" class="invalid-feedback">
         Por favor, forneça um email válido.
       </div>
     </div>
@@ -34,11 +34,11 @@
         id="password"
         autocomplete="off"
         [ngClass]="{
-          'is-invalid': formLogin.controls.pwd.errors,
-          'is-valid': !formLogin.controls.pwd.errors
+          'is-invalid': formLogin.controls['pwd'].invalid && formLogin.controls['pwd'].touched,
+          'is-valid': formLogin.controls['pwd'].valid
         }"
       />
-      <div *ngIf="formLogin.controls?.pwd?.errors" class="invalid-feedback">
+      <div *ngIf="formLogin.controls.pwd.errors" class="invalid-feedback">
         Por favor, forneça uma senha válida (6-12 caracteres).
       </div>
 
