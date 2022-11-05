@@ -3,6 +3,7 @@ import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { API_ERRORS } from 'src/app/shared/api-errors.constants';
 
 @Component({
   selector: 'app-login',
@@ -42,6 +43,15 @@ export class LoginComponent implements OnInit {
           setTimeout(() => {
             this.router.navigateByUrl('main/categories')
           }, 200)
-      }, () => this.authService.showSnackbar(`Ops, algo deu errado.`, 'Error') )
+      },       error => { 
+        switch (error.status){
+          case API_ERRORS.UNAUTHORIZED:
+          this.authService.showSnackbar(`Email e/ou senha incorretos. Verifique novamente`, 'Error')
+          break
+          default:
+          this.authService.showSnackbar(`Algo deu errado, tente mais tarde`, 'Error')
+        }
+      }
+      )
   }
 }

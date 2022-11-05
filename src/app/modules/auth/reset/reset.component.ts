@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { API_ERRORS } from 'src/app/shared/api-errors.constants';
 
 @Component({
   selector: 'app-reset',
@@ -81,8 +82,13 @@ export class ResetComponent implements OnInit {
       this.createPasswordInputForm()
     },
       error => { 
-        this.auth.showSnackbar(`Email incorreto. Verifique novamente`, 'Error')
-        console.log(error)
+        switch (error.status){
+          case API_ERRORS.NOT_FOUND:
+          this.auth.showSnackbar(`Email incorreto. Verifique novamente`, 'Error')
+          break
+          default:
+          this.auth.showSnackbar(`Algo deu errado, tente mais tarde`, 'Error')
+        }
       }
     )
   }
@@ -100,7 +106,6 @@ export class ResetComponent implements OnInit {
       },
       error => {
         this.auth.showSnackbar(`Algo deu errado, tente novamente`, 'Error')
-        console.log(error)
       }
     )
   }

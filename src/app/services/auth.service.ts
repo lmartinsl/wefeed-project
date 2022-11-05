@@ -120,7 +120,7 @@ export class AuthService {
     this.snackbar.open(
       msg, null,
       {
-        duration: 2000,
+        duration: 2500,
         panelClass: `snack${status}`
       } as MatSnackBarConfig)
   }
