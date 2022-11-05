@@ -88,22 +88,22 @@
           }"
         />
         <div
-        *ngIf="formPassword.controls.passwordRepeated.errors || !isPasswordSimilar"
+        *ngIf="formPassword.controls.passwordRepeated.errors"
         class="invalid-feedback"
       >
-      <p *ngIf="formPassword.controls.passwordRepeated.errors">
+      <p *ngIf="formPassword.controls.passwordRepeated.errors  && isPasswordSimilar">
         Por favor, forneça uma senha válida (6-12 caracteres)
       </p>
       
-      <p *ngIf="!isPasswordSimilar && formPassword.controls['passwordRepeated'].touched">
+      <p *ngIf="formPassword.controls.passwordRepeated.errors && !isPasswordSimilar && formPassword.controls['passwordRepeated'].touched">
         As senhas não são iguais
       </p>  
     </div>
         
         <div class="box-buttons">
           <button
-          [ngClass]="{ 'btn-disabled': formPassword.invalid }"
-          [disabled]="formPassword.invalid"
+          [ngClass]="{ 'btn-disabled': formPassword.invalid}"
+          [disabled]=" formPassword.invalid"
             type="submit"
             mat-raised-button
           >

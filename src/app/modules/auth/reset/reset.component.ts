@@ -60,6 +60,13 @@ export class ResetComponent implements OnInit {
   checkPasswordSimilarity(){
     const { passwordRepeated } = this.formPassword.controls
     this.isPasswordSimilar = (this.newPassword === passwordRepeated.value)
+
+    if(!this.isPasswordSimilar) {
+      this.formPassword.controls.passwordRepeated.setErrors({
+        isNotPasswordSimilar: false
+      })
+    }
+  
   }
 
   validateUserEmail(){
