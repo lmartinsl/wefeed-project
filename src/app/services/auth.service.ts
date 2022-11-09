@@ -68,6 +68,7 @@ export class AuthService {
     const headers = AuthApi.ACCEPTED
     const body = {
         email: user.email,
+        address: user.address,
         pass: user.pwd,
         telephone: user.telephone,
         cpf: "11111122231",

@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './../../../services/auth.service';
 
@@ -10,17 +10,29 @@ import { AuthService } from './../../../services/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
+  showAddressInput: boolean = false;
   public formRegister: FormGroup;
+  addressInputElement: any;
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private elementRef:ElementRef
   ) { }
 
   ngOnInit(): void {
     this.createForm()
+  }
+
+  ngAfterViewInit() {
+    this.elementRef.nativeElement.querySelector('select')
+      .addEventListener('change', this.validateAddressInputShow.bind(this));
+  }
+  
+  validateAddressInputShow(event) {
+    (event.target.value === 'Pessoa Fisica') ? this.showAddressInput = false
+    : this.showAddressInput = true;
   }
 
   private createForm(): void {
@@ -29,6 +41,7 @@ export class RegisterComponent implements OnInit {
 
     this.formRegister = this.fb.group({
       email: ['', [required, email]],
+      address: ['', [required]],
       pwd: ['', [required, minLength(6), maxLength(12)]],
       fullName: ['', [required, minLength(8)]],
       profile: ['', [required]],
@@ -38,9 +51,10 @@ export class RegisterComponent implements OnInit {
   }
 
   public register(): void {
-    const { email, pwd, fullName, profile, telephone  } = this.formRegister.controls
+    const { email, address, pwd, fullName, profile, telephone  } = this.formRegister.controls
     const user: User = {
       email: email.value,
+      address: address.value,
       pwd: pwd.value,
       fullName: fullName.value,
       profile: profile.value,

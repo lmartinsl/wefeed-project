@@ -60,9 +60,9 @@
       formControlName="profile"
       >
         <option value="" disabled selected>selecione seu perfil</option>
-        <option>Empresa</option>
-        <option>Ong</option>
-        <option>Pessoa Fisica</option>
+        <option >Empresa</option>
+        <option >Ong</option>
+        <option >Pessoa Fisica</option>
       </select>
       <div
         *ngIf="formRegister.controls?.profile?.errors"
@@ -71,6 +71,24 @@
         Por favor, selecione uma <strong>Opção.</strong>
       </div>
     </div>
+
+    <div class="form-group has-error" *ngIf="showAddressInput">
+      <input
+        formControlName="address"
+        autocomplete="off"
+        placeholder="Digite seu endereço"
+        type="address"
+        class="form-control"
+        id="address"
+        aria-describedby="address"
+        [ngClass]="{
+          'is-invalid': formRegister.controls['address'].invalid && formRegister.controls['address'].touched,
+          'is-valid': formRegister.controls['address'].valid
+        }"
+      />
+      <div class="invalid-feedback">Por favor, digite seu endereço.</div>
+    </div>
+    
     
     <div class="form-group has-error">
       <input
@@ -88,6 +106,7 @@
       />
       <div class="invalid-feedback">Por favor, digite seu e-mail.</div>
     </div>
+
     <div class="form-group">
       <input
         formControlName="pwd"
