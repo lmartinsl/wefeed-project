@@ -5,7 +5,7 @@ import { environment } from './../environments/environment.prod';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './modules/material/material.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
@@ -16,7 +16,7 @@ import { UniversalAppInterceptor } from './services/http-interceptor/http-interc
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent  
   ],
   imports: [
     BrowserModule,
