@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthorizeGuard } from 'src/app/services/auth-guard/auth-guard.service';
 import { SearchComponent } from '../search/search.module';
-import { CategoriesComponent } from './categories/categories.module';
+import { CategoriesComponent } from './categories/categories.component';
 import { MainComponent } from './main.component';
 import { StepOneComponent } from './step-one/step-one.component';
 import { StepThreeComponent } from './step-three/step-three.component';

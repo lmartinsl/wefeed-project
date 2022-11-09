@@ -9,7 +9,7 @@ import { MainRoutingModule } from './main-routing.module';
 import { StepOneComponent } from './step-one/step-one.component';
 import { StepTwoComponent } from './step-two/step-two.component';
 import { StepThreeComponent } from './step-three/step-three.component';
-import { CategoriesComponent } from './categories/categories.module';
+import { CategoriesComponent } from './categories/categories.component';
 import { SearchComponent } from '../search/search.module';
 
 @NgModule({

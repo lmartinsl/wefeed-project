@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CategoriesComponent } from '../main/categories/categories.module';
+import { CategoriesComponent } from '../main/categories/categories.component';
 import { StepOneComponent } from '../main/step-one/step-one.component';
 import { StepThreeComponent } from '../main/step-three/step-three.component';
 import { StepTwoComponent } from '../main/step-two/step-two.component';
