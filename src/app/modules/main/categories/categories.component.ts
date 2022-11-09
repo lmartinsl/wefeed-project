@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IGetCategoriesResponse } from 'src/app/interfaces/get-categories-response.interface';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
 import { API_ERRORS } from 'src/app/shared/api-errors.constants';
+import { IMG_SRC } from './category-item-card/category-item-card.constants';
 
 @Component({
   selector: 'app-categories',
@@ -11,6 +12,44 @@ import { API_ERRORS } from 'src/app/shared/api-errors.constants';
 })
 export class CategoriesComponent implements OnInit {
   categoriesItems: IGetCategoriesResponse;
+  categoriesItemsMocked = [
+    {
+      "id": 1,
+      "name": "Bebidas",
+      "description": "Bebidas",
+      "status": "A"
+    },
+    {
+      "id": 2,
+      "name": "Frutas",
+      "description": "Frutas",
+      "status": "A"
+    },
+    {
+      "id": 3,
+      "name": "Pães",
+      "description": "Pães",
+      "status": "A"
+    },
+    {
+      "id": 4,
+      "name": "Arroz",
+      "description": "Arroz",
+      "status": "A"
+    },
+    {
+      "id": 5,
+      "name": "Legumes",
+      "description": "Legumes",
+      "status": "A"
+    },
+    {
+      "id": 6,
+      "name": "Feijão",
+      "description": "Feijão",
+      "status": "A"
+    }
+  ]
 
   constructor(
     private router: Router,
@@ -21,7 +60,7 @@ export class CategoriesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getCategoriesItems()
+    // this.getCategoriesItems()
   }
 
   private getCategoriesItems(){
@@ -42,6 +81,10 @@ export class CategoriesComponent implements OnInit {
 
   public logOut(): void {
     this.router.navigateByUrl('auth/login')
+  }
+
+  getImgUrl(itemName: string){
+    return IMG_SRC[itemName]
   }
 
 }

@@ -31,3 +31,10 @@
     text-decoration: none;
     color: #646464;
 }
+
+menu {
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}

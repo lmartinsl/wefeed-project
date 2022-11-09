@@ -28,21 +28,6 @@ export class AuthService {
     private jwt: JWTTokenService
       ) { }
 
-  public getUsers(): Observable<User[]> {
-    return of(this.mockLoginPwd)
-  }
-
-  public isTokenNecessary(url: string){
-    return url === AuthApi.LOGIN || AuthApi.REGISTER ? false : true
-
-  }
-
-  
-  private checkListUser(user: User): { hasRegistered: boolean, index: number } {
-    const i = this.mockLoginPwd.findIndex((u: User) => u.email === user.email)
-    return i >= 0 ? { hasRegistered: true, index: i } : null
-  }
-
   public login(user: User): Observable<ILoginResponse> {
       const headers = AuthApi.ACCEPTED
       const body = {
