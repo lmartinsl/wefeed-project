@@ -2,6 +2,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthorizeGuard } from './services/auth-guard/auth-guard.service';
+import { CategoriesComponent } from './modules/main/categories/categories.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,8 @@ const routes: Routes = [
     loadChildren: () => import('./modules/main/main.module').then(m => m.MainModule),
     canActivate: [AuthorizeGuard]
   },
+  {
+    path: 'cat', component: CategoriesComponent  },
   { path: '**', component: NotFoundComponent }
 ];
 

@@ -11,7 +11,6 @@ import { StepTwoComponent } from './step-two/step-two.component';
 import { StepThreeComponent } from './step-three/step-three.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { SearchComponent } from '../search/search.module';
-import { CategoryItemCardComponent } from './categories/category-item-card/category-item-card.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { CategoryItemCardComponent } from './categories/category-item-card/categ
      StepTwoComponent,
      StepThreeComponent, 
      CategoriesComponent, 
-     SearchComponent,
-     CategoryItemCardComponent
+     SearchComponent
     ],
   imports: [
     CommonModule,

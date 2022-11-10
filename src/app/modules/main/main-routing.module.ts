@@ -14,9 +14,8 @@ const routes: Routes = [
   { path: 'step-one', component: StepOneComponent },
   { path: 'step-two', component: StepTwoComponent },
   { path: 'step-three', component: StepThreeComponent },
-  // { path: 'categories', component: CategoriesComponent,
-  // canActivate: [AuthorizeGuard] },
-  { path: 'categories', component: CategoriesComponent},
+  { path: 'categories', component: CategoriesComponent,
+  canActivate: [AuthorizeGuard] },
   { path: 'search', component: SearchComponent,
   canActivate: [AuthorizeGuard] },
   { path: '', component: MainComponent }

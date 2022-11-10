@@ -4,21 +4,15 @@
 
 }
 
-.title {
+h2 {
     text-align: center;
     color: #646464;
-    font-size: 24px;
-    margin-top: 20px;
+    font-size: 1.3rem;
 }
 
 .headerTitle {
     text-align: center;
     color: #FFF;
-}
-
-.search {
-    border-radius: 10px;
-    height: 50px;
 }
 
 .header {
@@ -27,14 +21,30 @@
     padding: 15px;
 }
 
-.linkCategories {
-    text-decoration: none;
-    color: #646464;
+
+main {
+    padding: 1rem 2rem 0.5rem ;
 }
+
 
 menu {
     justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+
+button {
+    max-width: 47%;
+    margin: 0.2rem;
+    &:hover {
+        background-color: rgba(166, 191, 77, 0.295);
+    }
+}
+
+p {
+    align-self: center;
 }

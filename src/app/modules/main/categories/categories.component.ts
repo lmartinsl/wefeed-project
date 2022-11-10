@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IGetCategoriesResponse } from 'src/app/interfaces/get-categories-response.interface';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
 import { API_ERRORS } from 'src/app/shared/api-errors.constants';
-import { IMG_SRC } from './category-item-card/category-item-card.constants';
+import { IMG_SRC } from './category-item-card.constants';
 
 @Component({
   selector: 'app-categories',
@@ -50,6 +50,7 @@ export class CategoriesComponent implements OnInit {
       "status": "A"
     }
   ]
+  isLoaded: boolean;
 
   constructor(
     private router: Router,
@@ -60,14 +61,14 @@ export class CategoriesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.getCategoriesItems()
+    this.getCategoriesItems()
   }
 
   private getCategoriesItems(){
     this.categoryService.getCategories().subscribe(
       (response) => {
       this.categoriesItems = response;
-      console.log(this.categoriesItems)  
+      this.isLoaded = true  
     },
       error => { 
         console.log(error)

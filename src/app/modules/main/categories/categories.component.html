@@ -1,15 +1,15 @@
 <div class="header">
-  <h5 class="headerTitle">WeFeed</h5>
+  <h1 class="headerTitle">Categorias</h1>
 </div>
+<main *ngIf="isLoaded">
+  <menu>
+<h2>escolha uma das categorias a seguir:</h2>
+  
+    <button class="card" *ngFor="let item of categoriesItems">
+      <img class="card-img-top" src="{{getImgUrl(item.name)}}" alt="{{item.name}}">
+          <p class="card-title linkCategories" href="">{{item.name}}</p>
+  </button>
+  </menu>
+</main>
 
-<menu>
-  <!-- <category-item-card *ngFor="let item of categoriesItemsMocked"
-  [itemName]="item.name">
-  </category-item-card> -->
-
-  <button class="card" *ngFor="let item of categoriesItemsMocked">
-    <img class="card-img-top" src="{{getImgUrl(item.name)}}" alt="{{item.name}}">
-        <p class="card-title linkCategories" href="">{{item.name}}</p>
-</button>
-</menu>
    
