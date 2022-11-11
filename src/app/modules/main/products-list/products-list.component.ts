@@ -25,8 +25,8 @@ export class ProductsListComponent implements OnInit {
   }
 
   onHeaderBackButtonClick(_clickedButton: string){
-    // this.router.navigateByUrl('main/categories')
-    this.router.navigateByUrl('cat')
+    this.router.navigateByUrl('main/categories')
+    // this.router.navigateByUrl('cat')
 
   }
 
