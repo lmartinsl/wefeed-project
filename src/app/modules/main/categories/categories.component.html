@@ -1,11 +1,14 @@
-<app-header title="Categorias"></app-header>
+<app-header title="{{titleNav}}"></app-header>
 <main *ngIf="isLoaded">
   <menu>
 <h2>escolha uma das categorias a seguir:</h2>
   
-    <button class="card" *ngFor="let item of categoriesItems">
-      <img class="card-img-top" src="{{getImgUrl(item.name)}}" alt="{{item.name}}">
-          <p class="card-title linkCategories" href="">{{item.name}}</p>
+    <button 
+    class="card" 
+    *ngFor="let item of categoriesItems" 
+    (click)="redirectToProductsListView($event)">
+      <img class="card-img-top" src="{{getImgUrl(item.name)}}" alt="{{item.name}}" id="{{item.id}}">
+          <p class="card-title linkCategories" href="" id="{{item.id}}">{{item.name}}</p>
   </button>
   </menu>
 </main>

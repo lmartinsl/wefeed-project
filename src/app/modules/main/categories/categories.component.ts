@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IGetCategoriesResponse } from 'src/app/interfaces/get-categories-response.interface';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
@@ -12,53 +12,16 @@ import { IMG_SRC } from './category-item-card.constants';
 })
 export class CategoriesComponent implements OnInit {
   categoriesItems: IGetCategoriesResponse;
-  categoriesItemsMocked = [
-    {
-      "id": 1,
-      "name": "Bebidas",
-      "description": "Bebidas",
-      "status": "A"
-    },
-    {
-      "id": 2,
-      "name": "Frutas",
-      "description": "Frutas",
-      "status": "A"
-    },
-    {
-      "id": 3,
-      "name": "Pães",
-      "description": "Pães",
-      "status": "A"
-    },
-    {
-      "id": 4,
-      "name": "Arroz",
-      "description": "Arroz",
-      "status": "A"
-    },
-    {
-      "id": 5,
-      "name": "Legumes",
-      "description": "Legumes",
-      "status": "A"
-    },
-    {
-      "id": 6,
-      "name": "Feijão",
-      "description": "Feijão",
-      "status": "A"
-    }
-  ]
   isLoaded: boolean;
+  titleNav: string = 'Categorias'
+
 
   constructor(
     private router: Router,
-    private categoryService: CategoriesService
+    private categoryService: CategoriesService,
+    private elementRef: ElementRef
+
     ) { }
-
-  public titleNav: string = 'Categorias'
-
 
   ngOnInit(): void {
     this.getCategoriesItems()
@@ -86,6 +49,12 @@ export class CategoriesComponent implements OnInit {
 
   getImgUrl(itemName: string){
     return IMG_SRC[itemName]
+  }
+
+  redirectToProductsListView(chosenCategory: any){
+    this.router.navigate(['pro'], { queryParams: { id: chosenCategory.target.id, name: chosenCategory.target.alt || chosenCategory.target.innerText  }, skipLocationChange: true })
+    // this.router.navigate(['main/products'], { queryParams: { id: chosenCategory.target.id, name: chosenCategory.target.alt || chosenCategory.target.innerText  }, skipLocationChange: true })
+
   }
 
 }

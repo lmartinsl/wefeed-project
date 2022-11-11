@@ -1,3 +1,11 @@
 <div class="header">
-    <h1 class="headerTitle">{{ title }}</h1>
-  </div>
+  <span>
+    <button class="back" value="backButton" *ngIf="backButton"></button>
+  </span>
+  <span class="middle">
+    <h1 class="headerTitle" *ngIf="title">{{ title }}</h1>
+  </span>
+  <span>
+    <button class="menu" value="addButton" *ngIf="menuButton"></button>
+  </span>
+</div>

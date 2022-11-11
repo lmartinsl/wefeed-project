@@ -1,10 +1,42 @@
+.header {
+    display: inline-flex;
+    background-color: #a6bf4d;
+    padding: 0.6rem;
+    width: 100%;
+}
+
+span{
+    height: 2rem;
+    &:first-child,
+    &:last-child{
+    flex: 10%;
+    }
+}
+
+button{
+    border: none;
+    height: 100%;
+    width: 100%;
+    background-repeat: round !important;
+
+}
+
+button.back {
+    background: url("../../../../assets/icons/left-arrow.png") no-repeat;
+}
+
+button.menu {
+    background: url("../../../../assets/icons/plus-geater.png");
+}
+
+.middle{
+    flex: 80%;
+}
+
 .headerTitle {
     text-align: center;
     color: #FFF;
 }
 
-.header {
-    background-color: #a6bf4d;
-    height: 60px;
-    padding: 15px;
-}
+
+

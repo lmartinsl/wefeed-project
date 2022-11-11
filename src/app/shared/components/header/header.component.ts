@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +7,29 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() title: string;
+  @Input() title?: string;
+  @Input() backButton?: boolean;
+  @Input() menuButton?: boolean;
 
-  constructor() { }
+  @Output() buttonClicked = new EventEmitter<string>();
+
+
+  constructor(
+    private elementRef:ElementRef
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit() {
+    const buttons = this.elementRef.nativeElement.querySelectorAll('button')
+    let buttonIndex = buttons.length
+    while (buttonIndex --)
+      buttons[buttonIndex].addEventListener('click', this.emitButtonClick.bind(this));
+  }
+
+  emitButtonClick(event: any){
+    this.buttonClicked.emit(event.target.value)
   }
 
 }
