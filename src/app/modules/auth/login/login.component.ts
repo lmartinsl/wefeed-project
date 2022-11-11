@@ -3,7 +3,7 @@ import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { API_ERRORS } from 'src/app/shared/api-errors.constants';
+import { API_ERRORS } from 'src/app/shared/constants/api-errors.constants';
 
 @Component({
   selector: 'app-login',

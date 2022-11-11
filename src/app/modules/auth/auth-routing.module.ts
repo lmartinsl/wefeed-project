@@ -4,7 +4,6 @@ import { CategoriesComponent } from '../main/categories/categories.component';
 import { StepOneComponent } from '../main/step-one/step-one.component';
 import { StepThreeComponent } from '../main/step-three/step-three.component';
 import { StepTwoComponent } from '../main/step-two/step-two.component';
-import { SearchComponent } from '../search/search.module';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -19,7 +18,6 @@ const routes: Routes = [
   { path: 'step-two', component: StepTwoComponent },
   { path: 'step-three', component: StepThreeComponent },
   { path: 'categories', component: CategoriesComponent },
-  { path: 'search', component: SearchComponent },
 ];
 
 @NgModule({

@@ -13,10 +13,11 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { UniversalAppInterceptor } from './services/http-interceptor/http-interceptor.service';
+
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent  
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

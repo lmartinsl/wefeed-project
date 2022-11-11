@@ -1,0 +1,31 @@
+div{
+    border: 0.1rem groove rgba(166, 191, 77, 0.295);
+    border-radius: 1rem;
+    padding: 1rem;
+    &:hover{
+        background-color: rgba(166, 191, 77, 0.295);
+    }
+}
+
+span{
+    display: inline-flex;
+    width: 100%;
+    height: 1.3rem;
+    place-content: space-between;
+    &:first
+    &p:first-child {
+        flex: 90%
+    };
+}
+
+#title,
+#volume {
+    font-weight: 900;
+    font-size: 1rem;
+}
+
+#expiration,
+#quantity {
+    font-weight: 400;
+    font-size: 0.8rem;
+}

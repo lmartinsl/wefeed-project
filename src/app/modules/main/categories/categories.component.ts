@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IGetCategoriesResponse } from 'src/app/interfaces/get-categories-response.interface';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
-import { API_ERRORS } from 'src/app/shared/api-errors.constants';
+import { API_ERRORS } from 'src/app/shared/constants/api-errors.constants';
 import { IMG_SRC } from './category-item-card.constants';
 
 @Component({

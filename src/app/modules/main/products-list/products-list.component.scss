@@ -1,0 +1,17 @@
+main {
+    padding: 1rem 1rem;
+}
+
+div.input-group {
+    display: flex;
+
+    & >input {
+        border-radius: 1rem!important;
+        flex: 90%;
+        background: url(/assets/images/products/lupe.png) no-repeat scroll 7px 7px;
+        background-position: right;
+        background-size: contain;
+        background-origin: content-box;
+
+    }
+}

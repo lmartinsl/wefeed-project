@@ -10,7 +10,9 @@ import { StepOneComponent } from './step-one/step-one.component';
 import { StepTwoComponent } from './step-two/step-two.component';
 import { StepThreeComponent } from './step-three/step-three.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { SearchComponent } from '../search/search.module';
+import { ProductsListComponent } from './products-list/products-list.component';
+import { HeaderComponent } from 'src/app/shared/components/header/header.component';
+import { ProductsListItemComponent } from './products-list/products-list-item/products-list-item.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { SearchComponent } from '../search/search.module';
      StepTwoComponent,
      StepThreeComponent, 
      CategoriesComponent, 
-     SearchComponent
+     ProductsListComponent,
+     HeaderComponent,
+     ProductsListItemComponent
     ],
   imports: [
     CommonModule,
