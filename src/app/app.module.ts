@@ -13,6 +13,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { UniversalAppInterceptor } from './services/http-interceptor/http-interceptor.service';
+import { FormBuilder } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { UniversalAppInterceptor } from './services/http-interceptor/http-interc
     AngularFirestoreModule,
     AngularFireDatabaseModule,
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: UniversalAppInterceptor, multi: true },],
+  providers: [FormBuilder, { provide: HTTP_INTERCEPTORS, useClass: UniversalAppInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

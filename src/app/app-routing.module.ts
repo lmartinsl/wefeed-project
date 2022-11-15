@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthorizeGuard } from './services/auth-guard/auth-guard.service';
 import { CategoriesComponent } from './modules/main/categories/categories.component';
 import { ProductsListComponent } from './modules/main/products-list/products-list.component';
+import { ProductRegisterComponent } from './modules/main/product-register/product-register.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   },
   { path: 'cat', component: CategoriesComponent  },
   { path: 'pro', component: ProductsListComponent  },
+  { path: 'reg', component: ProductRegisterComponent  },
   { path: '**', component: NotFoundComponent }
 ];
 

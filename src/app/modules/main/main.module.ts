@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '../material/material.module';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './main.component';
 import { TeamComponent } from './team/team.component';
 import { MainRoutingModule } from './main-routing.module';
@@ -13,6 +13,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { HeaderComponent } from 'src/app/shared/components/header/header.component';
 import { ProductsListItemComponent } from './products-list/products-list-item/products-list-item.component';
+import { ProductRegisterComponent } from './product-register/product-register.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +25,17 @@ import { ProductsListItemComponent } from './products-list/products-list-item/pr
      CategoriesComponent, 
      ProductsListComponent,
      HeaderComponent,
-     ProductsListItemComponent
-    ],
+     ProductsListItemComponent,
+     ProductRegisterComponent    ],
   imports: [
     CommonModule,
     MainRoutingModule,
-    ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
     MaterialModule
+  ],
+  providers:[
+    FormBuilder 
   ]
 })
 export class MainModule { }

@@ -23,6 +23,7 @@ export class ProductsListComponent implements OnInit {
       console.log(this.productListParams)
     })
   }
+  
 
   onHeaderBackButtonClick(_clickedButton: string){
     this.router.navigateByUrl('main/categories')
