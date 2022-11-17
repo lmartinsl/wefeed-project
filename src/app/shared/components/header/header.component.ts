@@ -9,7 +9,7 @@ export class HeaderComponent implements OnInit {
 
   @Input() title?: string;
   @Input() backButton?: boolean;
-  @Input() menuButton?: boolean;
+  @Input() addButton?: boolean;
 
   @Output() buttonClicked = new EventEmitter<string>();
 

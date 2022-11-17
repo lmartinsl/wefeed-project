@@ -1,0 +1,135 @@
+<app-header
+  title="{{ headerTitle }}"
+  backButton="true"
+  (buttonClicked)="goBackNavigation($event)"
+></app-header>
+
+<main id="validate-user">
+  <!-- <h3 class="title">Recuperar Senha</h3> -->
+  <form
+    class="form-group"
+    [formGroup]="formRegister"
+    (ngSubmit)="registerProduct()"
+  >
+    <input
+      formControlName="productName"
+      placeholder="Nome do produto"
+      type="text"
+      class="form-control"
+      id="productName"
+      [ngClass]="{
+        'is-invalid':
+          formRegister.controls['productName'].invalid &&
+          formRegister.controls['productName'].touched,
+        'is-valid': formRegister.controls['productName'].valid
+      }"
+    />
+    <div
+      *ngIf="formRegister.controls.productName.errors"
+      class="invalid-feedback"
+    >
+      Por favor, digite o nome do produto
+    </div>
+
+    <input
+      formControlName="productDescription"
+      placeholder="Descrição do produto"
+      type="text"
+      class="form-control"
+      id="productDescription"
+      [ngClass]="{
+        'is-invalid':
+          formRegister.controls['productDescription'].invalid &&
+          formRegister.controls['productDescription'].touched,
+        'is-valid': formRegister.controls['productDescription'].valid
+      }"
+    />
+    <div
+      *ngIf="formRegister.controls.productDescription.errors"
+      class="invalid-feedback"
+    >
+      Por favor, digite a descrição do produto
+    </div>
+
+    <div class="flex">
+      <span>
+        <input
+          formControlName="productVolume"
+          placeholder="Volume"
+          type="text"
+          class="form-control"
+          id="productVolume"
+          [ngClass]="{
+            'is-invalid':
+              formRegister.controls['productVolume'].invalid &&
+              formRegister.controls['productVolume'].touched,
+            'is-valid': formRegister.controls['productVolume'].valid
+          }"
+        />
+        <div
+          *ngIf="formRegister.controls.productVolume.errors"
+          class="invalid-feedback"
+        >
+          Por favor, digite o volume do produto
+        </div>
+      </span>
+      <span>
+        <input
+          formControlName="productQuantity"
+          placeholder="Quantidade"
+          type="number"
+          class="form-control"
+          id="productQuantity"
+          [ngClass]="{
+            'is-invalid':
+              formRegister.controls['productQuantity'].invalid &&
+              formRegister.controls['productQuantity'].touched,
+            'is-valid': formRegister.controls['productQuantity'].valid
+          }"
+        />
+        <div
+          *ngIf="formRegister.controls.productQuantity.errors"
+          class="invalid-feedback"
+        >
+          Por favor, digite a quantidade do produto
+        </div>
+      </span>
+    </div>
+
+    <div class="due-date-input">
+        <label for="productDueDate">Vencimento:</label>
+        <input
+          formControlName="productDueDate"
+          placeholder="Vencimento"
+          type="date"
+          class="form-control"
+          id="productDueDate"
+          [ngClass]="{
+            'is-invalid':
+              formRegister.controls['productDueDate'].invalid &&
+              formRegister.controls['productDueDate'].touched,
+            'is-valid': formRegister.controls['productDueDate'].valid
+          }"
+        />
+    
+        <div
+          *ngIf="formRegister.controls.productDueDate.errors"
+          class="invalid-feedback"
+        >
+          Por favor, informe a data de vencimento
+        </div>
+    </div>
+   
+
+    <div class="box-buttons">
+      <button
+        [ngClass]="{ 'btn-disabled': formRegister.invalid }"
+        [disabled]="formRegister.invalid"
+        type="submit"
+        mat-raised-button
+      >
+        CADASTRAR
+      </button>
+    </div>
+  </form>
+</main>

@@ -1,7 +1,13 @@
 <app-header title="{{titleNav}}"></app-header>
 <main *ngIf="isLoaded">
-  <menu>
-<h2>escolha uma das categorias a seguir:</h2>
+<menu>
+<div *ngIf="!isPerson; else elseBlock">
+  <h2 >escolha uma categoria para cadastrar doações:</h2>
+</div>
+<ng-template #elseBlock>
+  <h2>escolha uma categoria para consultar doações:</h2>
+</ng-template>
+
   
     <button 
     class="card" 

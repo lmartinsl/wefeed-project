@@ -1,9 +1,20 @@
-<app-header title="{{productListParams.name}}" backButton="true" (buttonClicked)="onHeaderBackButtonClick($event)"></app-header>
+<app-header 
+    title="{{productListParams.name}}" 
+    backButton="true"
+    [addButton]="!isPerson"
+    (buttonClicked)="onHeaderButtonClick($event)">
+</app-header>
 
 <main>
     <div class="input-group mb-4">
         <input type="text" class="form-control search" placeholder="Pesquise aqui um produto..." maxlength="28">
     </div>
     
-    <products-list-item></products-list-item>
+    <div id="isLoaded">
+        <products-list-item
+        *ngFor="let item of productsList"
+        [productData]="item"
+        ></products-list-item>
+    </div>
+
 </main>

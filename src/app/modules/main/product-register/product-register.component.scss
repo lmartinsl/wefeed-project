@@ -1,0 +1,59 @@
+.form-group {
+    label {
+        margin-bottom: 8px;
+    }
+
+    input {
+        height: 50px;
+    }
+
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.box-buttons {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+    button {
+        background-color: rgb(166, 191, 77);
+        border-radius: 10px;
+        height: 40px;
+        color: white;
+        width: 50%;
+    }
+}
+
+form>input{
+    margin-top: 1rem;
+}
+
+.flex {
+    margin-top: 1rem;
+    display: inline-flex;
+    justify-content: space-between;
+    & >span:first-child{
+        flex: 45%;
+        margin-right: 0.5rem;
+
+    }
+}
+
+div.due-date-input{
+margin-top: 0.5rem;
+
+    &>label{
+        margin: 0;
+        color: #A9A9A9;
+    }
+    &>input{
+        margin: 0;
+    }
+}
+
+.btn-disabled {
+    background-color: #9999997e !important;
+}
