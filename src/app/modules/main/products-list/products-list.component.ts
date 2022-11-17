@@ -77,16 +77,17 @@ export class ProductsListComponent implements OnInit {
   }
 
   backNavigation() {
-    // this.router.navigateByUrl('main/categories');
-    this.router.navigateByUrl('cat')
+    this.router.navigateByUrl('main/categories');
+
+    //this.router.navigateByUrl('cat')
   }
 
   registerNewProduct() {
-    // this.router.navigate(['main/product-register'] , { queryParams: { id:this.productListParams.id}, skipLocationChange: true });
-    this.router.navigate(['reg'], {
-      queryParams: { id: this.productListParams.id, name: this.productListParams.name },
-      skipLocationChange: true,
-    });
+    this.router.navigate(['main/product-register'] , { queryParams: { id:this.productListParams.id}, skipLocationChange: true });
+    // this.router.navigate(['reg'], {
+    //   queryParams: { id: this.productListParams.id, name: this.productListParams.name },
+    //   skipLocationChange: true,
+    // });
   }
 
   onHeaderButtonClick(_clickedButton: string) {
