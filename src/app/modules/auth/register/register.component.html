@@ -62,7 +62,7 @@
         <option value="" disabled selected>selecione seu perfil</option>
         <option >Empresa</option>
         <option >Ong</option>
-        <option >Pessoa Fisica</option>
+        <option >Pessoa Física</option>
       </select>
       <div
         *ngIf="formRegister.controls?.profile?.errors"
@@ -72,7 +72,7 @@
       </div>
     </div>
 
-    <div class="form-group has-error" *ngIf="showAddressInput">
+    <div class="form-group has-error">
       <input
         formControlName="address"
         autocomplete="off"

@@ -1,10 +1,19 @@
-<div class="mt-2"> 
+<div id="list-item" class="mt-2"> 
     <span>
         <p id="title">{{productData.name}}</p>
-        <p id="volume"> 1L</p>
+        <p id="volume"> {{productData.amount}}</p>
     </span>
     <span>
-        <p id="expiration">Venc: {{productData.dueDate}}</p>
+        <p id="expiration">Venc: {{productData.dueDate | date : 'dd/MM/yyyy' }}</p>
         <p id="quantity"> Qntd: {{productData.quantity}}</p>
     </span>
 </div>
+
+<product-details-modal
+#modal
+[productData]="productData" 
+*ngIf="isProductDetailsModalEnabled"
+(closeButtonClicked)="closeProductDetailsModal()"
+>
+</product-details-modal>
+

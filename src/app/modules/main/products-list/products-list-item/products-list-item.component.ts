@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'products-list-item',
@@ -7,10 +7,27 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ProductsListItemComponent implements OnInit {
   @Input() productData: any;
+  @ViewChild('modal') modal!: ElementRef;
+  isProductDetailsModalEnabled: boolean = false;
 
-  constructor() { }
+  constructor(
+    private elementRef:ElementRef,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit() {
+    this.elementRef.nativeElement.querySelector('#list-item')
+      .addEventListener('click', this.showProductDetailsModal.bind(this));
+  }
+  
+  showProductDetailsModal(event) {
+    this.isProductDetailsModalEnabled = true;
+  }
+
+  closeProductDetailsModal() {
+    this.isProductDetailsModalEnabled = false; 
   }
 
 }

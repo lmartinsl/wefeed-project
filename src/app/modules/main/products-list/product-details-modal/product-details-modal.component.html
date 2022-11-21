@@ -1,0 +1,49 @@
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+          </div>
+          <div class="modal-body">
+
+            <div id="product">
+                <p id="product-name"> {{productData.name}} </p>
+                <p id="product-description"> {{productData.description}} </p> 
+                
+                <span id="product-properties">
+                    <p>Volume:</p>
+                    <p> {{productData.amount}}</p>
+                </span>
+                <span id="product-properties">
+                    <p>Quantidade:</p>
+                    <p> {{productData.quantity}}</p>
+                </span>
+                <span id="product-properties">
+                    <p>Vence em:</p>
+                    <p> {{productData.dueDate | date : 'dd/MM/yyyy' }}</p>
+                </span>
+            </div>
+
+            <div id="owner">
+                <span id="owner-properties">
+                    <p>Doado por:</p>
+                    <p> {{productData.owner.name}}</p>
+                </span>
+                <span id="owner-properties">
+                    <p>Local para retirada: </p>
+                    <p> {{productData.owner.address}}</p>
+                </span>
+                <span id="owner-properties">
+                    <p>Contato: </p>
+                    <p> {{productData.owner.telephone}}</p>
+                </span>
+            </div>
+
+          </div>
+          <div class="modal-footer" role="button">
+            <p>{{footerButtonLabel}}</p>
+          </div>
+    </div>
+  
+</div>
