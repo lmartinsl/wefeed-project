@@ -31,19 +31,19 @@
       Por favor, digite o nome do produto
     </div>
 
-    <input
-      formControlName="productDescription"
-      placeholder="Descrição do produto"
-      type="text"
-      class="form-control"
-      id="productDescription"
-      [ngClass]="{
-        'is-invalid':
-          formRegister.controls['productDescription'].invalid &&
-          formRegister.controls['productDescription'].touched,
-        'is-valid': formRegister.controls['productDescription'].valid
-      }"
-    />
+    <textarea 
+    formControlName="productDescription"
+    class="form-control"
+    id="productDescription"
+    placeholder="Insira a descrição do produto"
+    rows="5"
+    [ngClass]="{
+      'is-invalid':
+        formRegister.controls['productDescription'].invalid &&
+        formRegister.controls['productDescription'].touched,
+      'is-valid': formRegister.controls['productDescription'].valid
+    }">
+    </textarea>
     <div
       *ngIf="formRegister.controls.productDescription.errors"
       class="invalid-feedback"

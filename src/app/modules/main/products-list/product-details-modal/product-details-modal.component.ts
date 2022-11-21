@@ -76,6 +76,12 @@ export class ProductDetailsModalComponent implements OnInit {
     console.log('deleteProduct')
   }
 
-
+  putPhoneMask(value: any) {
+    let phoneValue = value.toString()
+    phoneValue = phoneValue.replace(/\D/g, "")
+    phoneValue = phoneValue.replace(/^(\d{2})(\d)/g, "($1) $2")
+    phoneValue = phoneValue.replace(/(\d)(\d{4})$/, "$1-$2")
+    return phoneValue
+}
 
 }

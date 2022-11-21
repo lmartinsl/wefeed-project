@@ -57,7 +57,6 @@ export class AuthService {
         address: user.address,
         pass: user.pwd,
         telephone: user.telephone,
-        cpf: "11111122231",
         profile: UserProfile[user.profile],
         name: user.fullName
     }

@@ -31,12 +31,15 @@
 
     <div class="form-group">
       <input
-        formControlName="telephone"
-        autocomplete="off"
-        placeholder="Digite seu telefone"
-        type="text"
-        class="form-control"
         id="telephone"
+        class="form-control"
+        formControlName="telephone"
+        placeholder="Digite seu telefone"
+        type="tel"
+        phoneMask
+        [preValue]="formRegister.controls['telephone'].value"
+        [phoneControl]="formRegister.controls['telephone']"
+        maxlength="15"
         [ngClass]="{
           'is-invalid': formRegister.controls['telephone'].invalid && formRegister.controls['telephone'].touched,
           'is-valid': formRegister.controls['telephone'].valid
@@ -77,7 +80,7 @@
         formControlName="address"
         autocomplete="off"
         placeholder="Digite seu endereço"
-        type="address"
+        type="Address"
         class="form-control"
         id="address"
         aria-describedby="address"

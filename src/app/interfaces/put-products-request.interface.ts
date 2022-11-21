@@ -7,6 +7,7 @@ export interface IPutProductsRequest {
     id: number,
     name: string,
     quantity: number,
+    amount: number,
     status: string,
     owner: IOwner
     category: ICategory,

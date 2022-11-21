@@ -29,6 +29,7 @@ export class ProductsService {
         id: product.id,
         name: product.name,
         quantity: product.quantity,
+        amount: product.volume,
         status: product.status,
         category: category,
         owner: owner,

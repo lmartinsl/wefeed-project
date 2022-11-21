@@ -44,7 +44,7 @@ export class ProductRegisterComponent implements OnInit {
 
     this.formRegister = this.fb.group({
       productName: ['', [minLength(5), required]],
-      productDescription: ['', [minLength(5), maxLength(50), required]],
+      productDescription: ['', [minLength(10), maxLength(300), required]],
       productVolume: ['', [minLength(2), required]],
       productQuantity: ['', [ required]],
       productDueDate: ['', [ required]],

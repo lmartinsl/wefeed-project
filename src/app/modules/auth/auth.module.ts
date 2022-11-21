@@ -8,10 +8,11 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetComponent } from './reset/reset.component';
+import { PhoneMaskDirective } from 'src/app/shared/directives/phone-mask.directive';
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, AuthComponent, ResetComponent],
+  declarations: [LoginComponent, RegisterComponent, AuthComponent, ResetComponent, PhoneMaskDirective],
   imports: [
     CommonModule,
     AuthRoutingModule,

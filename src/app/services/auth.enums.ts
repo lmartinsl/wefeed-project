@@ -1,5 +1,5 @@
 export enum UserProfile {
     'Ong' = 'ONG',
-    'Pessoa Fisica'= 'PERSON', 
+    'Pessoa Física'= 'PERSON', 
     'Empresa' = 'COMPANY'
 }
