@@ -63,12 +63,9 @@
     animation-duration: 0.4s
   }
 
-  div#product{
-    display: inline-grid;
-    margin-top: 1rem
-  }
-
+  div#product, 
   div#owner{
+    display: inline-grid;
     margin-top: 1rem
   }
 
