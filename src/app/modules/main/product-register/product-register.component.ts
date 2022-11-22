@@ -63,8 +63,6 @@ export class ProductRegisterComponent implements OnInit {
 
     }
 
-    // console.log(productName.value, productDescription.value, productVolume.value, productQuantity.value, productDueDate.value)
-
   this.service.putProducts(category, product).subscribe(    
     () => {
       this.goBackNavigation()    

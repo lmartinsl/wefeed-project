@@ -87,10 +87,10 @@ export class ProductsListComponent implements OnInit {
   }
 
   registerNewProduct() {
-    // this.router.navigate(['main/product-register'] , { skipLocationChange: true });
-    this.router.navigate(['reg'], {
-      skipLocationChange: true
-    });
+    this.router.navigate(['main/product-register'] , { skipLocationChange: true });
+    // this.router.navigate(['reg'], {
+    //   skipLocationChange: true
+    // });
   }
 
   onHeaderButtonClick(_clickedButton: string) {
