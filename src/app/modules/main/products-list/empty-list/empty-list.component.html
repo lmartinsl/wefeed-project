@@ -1,0 +1,14 @@
+<div>
+    <span *ngIf="isPerson, else notPerson">
+        <p>Ops, ainda não há doações disponíveis nesta categoria :(</p>
+    </span>
+    <ng-template #notPerson>
+        <span>
+            <p>Você ainda não registrou nenhuma doação nesta categoria :(</p>
+        </span>
+    </ng-template>
+
+    <span>
+        <img src="../../../../../assets/images/products/empty-plate.png" alt="">
+    </span>
+</div>

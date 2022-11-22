@@ -14,6 +14,7 @@ export class ProductsListComponent implements OnInit {
   isPerson: boolean;
   productListParams: { id: string; name: string };
   productsList = []
+  isproductListEmpty: boolean;
 
   constructor(
     private readonly router: Router,
@@ -49,6 +50,7 @@ export class ProductsListComponent implements OnInit {
     .subscribe(
       (response) => {
         this.productsList = response;
+        this.checkListLength();
         this.isLoaded = true;
       },
       () => {},
@@ -70,16 +72,21 @@ export class ProductsListComponent implements OnInit {
           }
           this.productsList.push(element);
         });
+        this.checkListLength();
         this.isLoaded = true;
       },
       () => {},
     )
   }
 
-  backNavigation() {
-    this.router.navigateByUrl('main/categories');
+  checkListLength(){
+    this.isproductListEmpty = (this.productsList.length === 0)
+  }
 
-    //this.router.navigateByUrl('cat')
+  backNavigation() {
+    // this.router.navigateByUrl('main/categories');
+
+    this.router.navigateByUrl('cat')
   }
 
   registerNewProduct() {

@@ -6,15 +6,23 @@
 </app-header>
 
 <main>
-    <div class="input-group mb-4">
-        <input type="text" class="form-control search" placeholder="Pesquise aqui um produto..." maxlength="28">
-    </div>
-    
-    <div id="isLoaded">
-        <products-list-item
-        *ngFor="let item of productsList"
-        [productData]="item"
-        ></products-list-item>
-    </div>
+    <section id="product-list" *ngIf="!isproductListEmpty, else empty">
+        <div class="input-group mb-4">
+            <input type="text" class="form-control search" placeholder="Pesquise aqui um produto..." maxlength="28">
+        </div>
+        
+        <div id="isLoaded">
+            <products-list-item
+            *ngFor="let item of productsList"
+            [productData]="item"
+            ></products-list-item>
+        </div>
+    </section>
+
+    <ng-template #empty>
+        <empty-list [isPerson]="isPerson">
+        </empty-list>    
+    </ng-template>
+
 
 </main>

@@ -15,6 +15,7 @@ import { HeaderComponent } from 'src/app/shared/components/header/header.compone
 import { ProductsListItemComponent } from './products-list/products-list-item/products-list-item.component';
 import { ProductRegisterComponent } from './product-register/product-register.component';
 import { ProductDetailsModalComponent } from './products-list/product-details-modal/product-details-modal.component';
+import { EmptyListComponent } from './products-list/empty-list/empty-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { ProductDetailsModalComponent } from './products-list/product-details-mo
      HeaderComponent,
      ProductsListItemComponent,
      ProductRegisterComponent,
-     ProductDetailsModalComponent    ],
+     ProductDetailsModalComponent,
+     EmptyListComponent
+    ],
   imports: [
     CommonModule,
     MainRoutingModule,
