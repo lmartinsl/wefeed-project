@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ICategory } from 'src/app/interfaces/category.interface';
 import { ProductsService } from 'src/app/services/products/products.service';
+import { SessionStorageService } from 'src/app/shared/services/session-storage/session-storage.service';
 
 @Component({
   selector: 'app-product-register',
@@ -19,24 +20,19 @@ export class ProductRegisterComponent implements OnInit {
   constructor(
   private readonly fb: FormBuilder,
   private service: ProductsService,
-  private activatedRoute: ActivatedRoute,
+  private storage: SessionStorageService,
   private readonly router: Router
 
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe((params)=>{
-      this.categoryInfo = {
-        id: params.id,
-        name: params.name,
-      };
-      this.createRegisterInputForm()
 
-    })
+    this.categoryInfo = JSON.parse(this.storage.get('chosenCategory'))
+    this.createRegisterInputForm()
   }
 
   goBackNavigation(event?: any) {
-    this.router.navigate(['main/products'], { queryParams: { id: this.categoryInfo.id, name: this.categoryInfo.name  }, skipLocationChange: true })
+    this.router.navigate(['main/products'], { skipLocationChange: true })
   }
 
   createRegisterInputForm() {

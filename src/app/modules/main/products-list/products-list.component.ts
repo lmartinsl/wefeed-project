@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { ProductsService } from 'src/app/services/products/products.service';
+import { SessionStorageService } from 'src/app/shared/services/session-storage/session-storage.service';
 import { UserService } from 'src/app/shared/services/user/user.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class ProductsListComponent implements OnInit {
 
   constructor(
     private readonly router: Router,
-    private activatedRoute: ActivatedRoute,
+    private storage: SessionStorageService,
     private service: ProductsService,
     private user: UserService
   ) {}
@@ -26,18 +27,14 @@ export class ProductsListComponent implements OnInit {
   ngOnInit(): void {
     this.isPerson = this.user.verifyClientProfileIsPerson();
 
-    this.activatedRoute.queryParams.subscribe((params) => {
-      this.productListParams = {
-        id: params.id,
-        name: params.name,
-      };
+    this.productListParams = JSON.parse(this.storage.get('chosenCategory'))
 
-      if(this.isPerson) {
-        this.getProductsByCategory()
-      } else {
-        this.getProductsByOwner()
-      }
-    });
+    if(this.isPerson) {
+      this.getProductsByCategory()
+    } else {
+      this.getProductsByOwner()
+    }
+
   }
 
   getProductsByCategory(){
@@ -90,11 +87,10 @@ export class ProductsListComponent implements OnInit {
   }
 
   registerNewProduct() {
-    this.router.navigate(['main/product-register'] , { queryParams: { id:this.productListParams.id, name: this.productListParams.name}, skipLocationChange: true });
-    // this.router.navigate(['reg'], {
-    //   queryParams: { id: this.productListParams.id, name: this.productListParams.name },
-    //   skipLocationChange: true,
-    // });
+    // this.router.navigate(['main/product-register'] , { skipLocationChange: true });
+    this.router.navigate(['reg'], {
+      skipLocationChange: true
+    });
   }
 
   onHeaderButtonClick(_clickedButton: string) {

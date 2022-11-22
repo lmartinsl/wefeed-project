@@ -1,5 +1,8 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { take } from 'rxjs/operators';
+import { ProductsService } from 'src/app/services/products/products.service';
 import { UserService } from 'src/app/shared/services/user/user.service';
+import { ProductsListComponent } from '../products-list.component';
 import { WHATSAPP } from './product-details-modal.constants';
 
 @Component({
@@ -14,13 +17,15 @@ export class ProductDetailsModalComponent implements OnInit {
   modal: HTMLElement;
   closeModalButton: Element;
   footerModalButton: Element;
-  footerButtonLabel: string = 'excluir produto'
+  footerButtonLabel: string = 'excluir produto';
   isPerson: boolean;
 
   constructor(
     private elementRef: ElementRef,
-    private user: UserService
-    ) {}
+    private user: UserService,
+    private service: ProductsService,
+    private parent: ProductsListComponent
+  ) {}
 
   public openModal() {
     this.modal.style.display = 'block';
@@ -32,7 +37,9 @@ export class ProductDetailsModalComponent implements OnInit {
     this.footerModalButton = document.getElementsByClassName('modal-footer')[0];
 
     this.isPerson = this.user.verifyClientProfileIsPerson();
-    this.footerButtonLabel = this.isPerson ? 'contatar doador' : 'excluir produto';
+    this.footerButtonLabel = this.isPerson
+      ? 'contatar doador'
+      : 'excluir produto';
 
     this.showModal();
   }
@@ -41,47 +48,61 @@ export class ProductDetailsModalComponent implements OnInit {
     this.elementRef.nativeElement
       .querySelector('span')
       .addEventListener('click', this.closeProductDetailsModal.bind(this));
-      
-    this.footerModalButton
-    .addEventListener('click', this.handleFooterButtonClick.bind(this));
+
+    this.footerModalButton.addEventListener(
+      'click',
+      this.handleFooterButtonClick.bind(this)
+    );
   }
 
-  showModal(){
+  showModal() {
     this.modal.style.display = 'block';
-
   }
 
   closeProductDetailsModal() {
-    // this.modal.style.display = 'none';
-    this.closeButtonClicked.emit()
+    this.closeButtonClicked.emit();
   }
 
   handleFooterButtonClick(event: any) {
-    switch(event.target.innerText){
+    switch (event.target.innerText) {
       case 'contatar doador':
-        this.sendToWhatsApp()
+        this.sendToWhatsApp();
         break;
       case 'excluir produto':
-        this.deleteProduct()
-        break
+        this.deleteProduct();
+        break;
     }
   }
 
-  sendToWhatsApp(){
-    window.open(WHATSAPP.URL + this.productData.owner.telephone + WHATSAPP.PRE_TEXT + this.productData.name + WHATSAPP.POS_TEXT);
-    console.log('sendToWhatsApp')
+  sendToWhatsApp() {
+    window.open(
+      WHATSAPP.URL +
+        this.productData.owner.telephone +
+        WHATSAPP.PRE_TEXT +
+        this.productData.name +
+        WHATSAPP.POS_TEXT
+    );
   }
 
-  deleteProduct(){
-    console.log('deleteProduct')
+  deleteProduct() {
+    this.service
+      .deleteProduct(this.productData.id)
+      .pipe(take(1))
+      .subscribe(
+        () => {
+          this.parent.ngOnInit
+        },
+        () => {}
+      );
+
+    console.log('deleteProduct');
   }
 
   putPhoneMask(value: any) {
-    let phoneValue = value.toString()
-    phoneValue = phoneValue.replace(/\D/g, "")
-    phoneValue = phoneValue.replace(/^(\d{2})(\d)/g, "($1) $2")
-    phoneValue = phoneValue.replace(/(\d)(\d{4})$/, "$1-$2")
-    return phoneValue
-}
-
+    let phoneValue = value.toString();
+    phoneValue = phoneValue.replace(/\D/g, '');
+    phoneValue = phoneValue.replace(/^(\d{2})(\d)/g, '($1) $2');
+    phoneValue = phoneValue.replace(/(\d)(\d{4})$/, '$1-$2');
+    return phoneValue;
+  }
 }

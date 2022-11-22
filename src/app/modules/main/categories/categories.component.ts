@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IGetCategoriesResponse } from 'src/app/interfaces/get-categories-response.interface';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
-import { API_ERRORS } from 'src/app/shared/constants/api-errors.constants';
+import { SessionStorageService } from 'src/app/shared/services/session-storage/session-storage.service';
 import { UserService } from 'src/app/shared/services/user/user.service';
 import { IMG_SRC } from './category-item-card.constants';
 
@@ -21,7 +21,8 @@ export class CategoriesComponent implements OnInit {
   constructor(
     private router: Router,
     private categoryService: CategoriesService,
-    private user: UserService
+    private user: UserService,
+    private storage: SessionStorageService
   ) {}
 
   ngOnInit(): void {
@@ -54,8 +55,9 @@ export class CategoriesComponent implements OnInit {
   }
 
   redirectToProductsListView(chosenCategory: any){
+    this.storage.set('chosenCategory', JSON.stringify({id: chosenCategory.target.id, name: chosenCategory.target.alt || chosenCategory.target.innerText}))
     // this.router.navigate(['pro'], { queryParams: { id: chosenCategory.target.id, name: chosenCategory.target.alt || chosenCategory.target.innerText  }, skipLocationChange: true })
-    this.router.navigate(['main/products'], { queryParams: { id: chosenCategory.target.id, name: chosenCategory.target.alt || chosenCategory.target.innerText  }, skipLocationChange: true })
+    this.router.navigate(['main/products'], { skipLocationChange: true })
 
   }
 

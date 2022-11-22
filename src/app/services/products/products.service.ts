@@ -67,4 +67,14 @@ export class ProductsService {
         ));
     }
 
+    public deleteProduct(product: number): Observable<any> {   
+        return (this.http.delete(ProductsApi.DELETE_PRODUCT.replace(':id', product.toString()))
+        .pipe(
+          map(
+          (response: any) => {
+            return response
+          })
+        ));
+    }
+
 }
