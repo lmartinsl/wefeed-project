@@ -54,8 +54,8 @@ export class CategoriesComponent implements OnInit {
   }
 
   redirectToProductsListView(chosenCategory: any){
-    this.router.navigate(['pro'], { queryParams: { id: chosenCategory.target.id, name: chosenCategory.target.alt || chosenCategory.target.innerText  }, skipLocationChange: true })
-    // this.router.navigate(['main/products'], { queryParams: { id: chosenCategory.target.id, name: chosenCategory.target.alt || chosenCategory.target.innerText  }, skipLocationChange: true })
+    // this.router.navigate(['pro'], { queryParams: { id: chosenCategory.target.id, name: chosenCategory.target.alt || chosenCategory.target.innerText  }, skipLocationChange: true })
+    this.router.navigate(['main/products'], { queryParams: { id: chosenCategory.target.id, name: chosenCategory.target.alt || chosenCategory.target.innerText  }, skipLocationChange: true })
 
   }
 

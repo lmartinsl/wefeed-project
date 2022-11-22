@@ -84,9 +84,9 @@ export class ProductsListComponent implements OnInit {
   }
 
   backNavigation() {
-    // this.router.navigateByUrl('main/categories');
+    this.router.navigateByUrl('main/categories');
 
-    this.router.navigateByUrl('cat')
+    // this.router.navigateByUrl('cat')
   }
 
   registerNewProduct() {
