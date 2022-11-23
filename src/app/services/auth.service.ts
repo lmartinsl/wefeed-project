@@ -43,7 +43,7 @@ export class AuthService {
           this.hasAuthenticated$.next(true)
           this.storage.set('token', response.token);
           this.jwt.setToken(response.token);
-          sessionStorage.setItem('ownerInfo', JSON.stringify(response))
+          sessionStorage.setItem('user', JSON.stringify(response))
           return response
         })
       ));

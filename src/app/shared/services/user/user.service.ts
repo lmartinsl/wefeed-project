@@ -8,12 +8,12 @@ export class UserService {
   constructor() { }
 
   verifyClientProfileIsPerson(): boolean {
-    const userInfo = JSON.parse(sessionStorage.getItem('ownerInfo'))
+    const userInfo = JSON.parse(sessionStorage.getItem('user'))
     return (userInfo.profile === 'PERSON')
   }
 
   getOwnerId(): number {
-    const userInfo = JSON.parse(sessionStorage.getItem('ownerInfo'))
+    const userInfo = JSON.parse(sessionStorage.getItem('user'))
     return userInfo.id
   }
 }

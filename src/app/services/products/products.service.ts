@@ -21,7 +21,7 @@ export class ProductsService {
     ) {}
 
     public putProducts(category: ICategory, product: any): Observable<IPutProductsResponse> { 
-      const owner: IOwner = JSON.parse(sessionStorage.getItem('ownerInfo'))
+      const owner: IOwner = JSON.parse(sessionStorage.getItem('user'))
 
       const body: IPutProductsRequest = {
         description: product.description,
