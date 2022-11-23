@@ -104,7 +104,7 @@ export class ProductDetailsModalComponent implements OnInit {
       .pipe(take(1))
       .subscribe(
         () => {
-          this.parent.ngOnInit
+          this.parent.ngOnInit()
         },
         () => {}
       );
