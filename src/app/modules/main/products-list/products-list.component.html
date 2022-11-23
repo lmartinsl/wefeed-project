@@ -11,9 +11,14 @@
             <input type="text" class="form-control search" placeholder="Pesquise aqui um produto..." maxlength="28">
         </div> -->
 
-        <p>Essas são as doeações disponíveis:</p>
+        <p *ngIf="isPerson, else nonPerson"> Essas são as doações disponíveis para você:</p>
+
+        <ng-template #nonPerson>
+            <p >Essas são as suas doações cadastradas:</p>  
+        </ng-template>
+
         
-        <div id="isLoaded">
+        <div id="productList">
             <products-list-item
             *ngFor="let item of productsList"
             [productData]="item"
