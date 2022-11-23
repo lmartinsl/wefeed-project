@@ -7,9 +7,11 @@
 
 <main>
     <section id="product-list" *ngIf="!isproductListEmpty, else empty">
-        <div class="input-group mb-4">
+        <!-- <div class="input-group mb-4">
             <input type="text" class="form-control search" placeholder="Pesquise aqui um produto..." maxlength="28">
-        </div>
+        </div> -->
+
+        <p>Essas são as doeações disponíveis:</p>
         
         <div id="isLoaded">
             <products-list-item

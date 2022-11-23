@@ -18,13 +18,13 @@
 
 
     <div *ngIf="!isPerson; else elseBlock">
-      <h2>escolha uma categoria para cadastrar doações:</h2>
+      <h2>Em qual categoria você deseja cadastrar doações?</h2>
     </div>
     <ng-template #elseBlock>
-      <h2>escolha uma categoria para consultar doações:</h2>
+      <h2>Em qual categoria você deseja consultar doações?</h2>
     </ng-template>
 
-
+    
     <button class="card" *ngFor="let item of categoriesItems" (click)="redirectToProductsListView($event)">
       <img class="card-img-top" src="{{getImgUrl(item.name)}}" alt="{{item.name}}" id="{{item.id}}">
       <p class="card-title linkCategories" href="" id="{{item.id}}">{{item.name}}</p>

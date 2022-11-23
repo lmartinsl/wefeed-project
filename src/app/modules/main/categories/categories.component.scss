@@ -38,7 +38,6 @@ h1 {
 }
 
 h2 {
-    text-align: center;
     color: #646464;
     font-size: 1.3rem;
 }
@@ -61,6 +60,7 @@ menu {
 button {
     max-width: 47%;
     margin: 0.2rem;
+    margin-top: 0.8rem;
     &:hover {
         background-color: rgba(166, 191, 77, 0.295);
     }
