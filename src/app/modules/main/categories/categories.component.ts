@@ -78,7 +78,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   redirectToProfile(){
-    console.log('foi para o perfil')
+    this.router.navigate(['main/user'])
   }
 
 

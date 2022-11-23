@@ -1,0 +1,39 @@
+<header>
+    <span class="material-icons"
+    (click)="onHeaderButtonClick()">
+        arrow_back
+        </span>
+</header>
+
+<main>
+    <h2>Olá, {{ user.name }}</h2>
+
+    <div class="box-logo" routerLink="">
+        <img
+          class="img-fluid"
+          src="../../../../assets/images/logo/logo.png"
+          alt=""
+        />
+      </div>
+
+
+
+    <div id="user">
+        <span id="user-properties">
+            <p>Seu perfil é : </p>
+            <p> {{ getUserProfile() }}</p>
+        </span>
+        <span id="user-properties">
+            <p>Seu Email:</p>
+            <p> {{user.email}}</p>
+        </span>
+        <span id="user-properties">
+            <p>Seu Endereço: </p>
+            <p> {{user.address}}</p>
+        </span>
+        <span id="user-properties">
+            <p>Contato: </p>
+            <p> {{ putPhoneMask(user.telephone)}}</p>
+        </span>
+    </div>
+</main>

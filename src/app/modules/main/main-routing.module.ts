@@ -8,6 +8,7 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { StepOneComponent } from './step-one/step-one.component';
 import { StepThreeComponent } from './step-three/step-three.component';
 import { StepTwoComponent } from './step-two/step-two.component';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,8 @@ const routes: Routes = [
   { path: 'products', component: ProductsListComponent,
   canActivate: [AuthorizeGuard] },
   { path: 'product-register', component: ProductRegisterComponent,
+  canActivate: [AuthorizeGuard] },
+  { path: 'user', component: UserInfoComponent,
   canActivate: [AuthorizeGuard] }
 ];
 
