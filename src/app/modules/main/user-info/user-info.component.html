@@ -6,7 +6,7 @@
 </header>
 
 <main>
-    <h2>Olá, {{ user.name }}</h2>
+
 
     <div class="box-logo" routerLink="">
         <img
@@ -16,23 +16,24 @@
         />
       </div>
 
-
+      <h2>Olá, {{ user.name }}</h2>
+      <p>essas são suas informações cadastradas conosco:</p>
 
     <div id="user">
         <span id="user-properties">
-            <p>Seu perfil é : </p>
+            <p>Perfil : </p>
             <p> {{ getUserProfile() }}</p>
         </span>
         <span id="user-properties">
-            <p>Seu Email:</p>
+            <p>Email:</p>
             <p> {{user.email}}</p>
         </span>
         <span id="user-properties">
-            <p>Seu Endereço: </p>
+            <p>Endereço: </p>
             <p> {{user.address}}</p>
         </span>
         <span id="user-properties">
-            <p>Contato: </p>
+            <p>Telefone : </p>
             <p> {{ putPhoneMask(user.telephone)}}</p>
         </span>
     </div>
