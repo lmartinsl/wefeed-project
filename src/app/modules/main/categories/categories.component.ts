@@ -15,7 +15,13 @@ export class CategoriesComponent implements OnInit {
   categoriesItems: IGetCategoriesResponse;
   isLoaded: boolean;
   isPerson: boolean;
+  showChoiceModal: boolean;
   titleNav: string = 'Categorias'
+  choiceModalData = {
+    question:'Deseja realmente sair do aplicativo?',
+    firstButton:'Sim',
+    secondButton: "Não"
+  }
 
 
   constructor(
@@ -42,10 +48,6 @@ export class CategoriesComponent implements OnInit {
     )
   }
 
-  public updateTitleNav(currentTitle): void {
-    this.titleNav = currentTitle
-  }
-
   public logOut(): void {
     this.router.navigateByUrl('auth/login')
   }
@@ -58,7 +60,26 @@ export class CategoriesComponent implements OnInit {
     this.storage.set('chosenCategory', JSON.stringify({id: chosenCategory.target.id, name: chosenCategory.target.alt || chosenCategory.target.innerText}))
     this.router.navigate(['pro'], { queryParams: { id: chosenCategory.target.id, name: chosenCategory.target.alt || chosenCategory.target.innerText  }, skipLocationChange: true })
     // this.router.navigate(['main/products'], { skipLocationChange: true })
-
   }
+
+  openChoiceModal(){
+    this.showChoiceModal = true;
+  }
+
+  closeChoiceModal(){
+    this.showChoiceModal = false;
+  }
+
+  onChoiceModalResponse(userChoice: any){
+    this.closeChoiceModal();
+    if(userChoice.target.innerText === "Sim"){
+      this.logOut()
+    }
+  }
+
+  redirectToProfile(){
+    console.log('foi para o perfil')
+  }
+
 
 }

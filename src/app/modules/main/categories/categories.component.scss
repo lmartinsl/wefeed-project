@@ -1,3 +1,31 @@
+header {
+    display: inline-flex;
+    background-color: #a6bf4d;
+    padding: 0.6rem;
+    width: 100%;
+}
+
+header>span{
+    height: 2rem;
+    &:first-child,
+    &:last-child{
+    flex: 10%;
+    }
+}
+
+.icon-header {
+    color: #fff;
+    padding: 0.6rem;
+}
+
+.middle{
+    flex: 80%;
+}
+
+.headerTitle {
+    text-align: center;
+    color: #FFF;
+}
 
 .container {
     padding: 30px;

@@ -17,6 +17,7 @@ import { ProductRegisterComponent } from './product-register/product-register.co
 import { ProductDetailsModalComponent } from './products-list/product-details-modal/product-details-modal.component';
 import { EmptyListComponent } from './products-list/empty-list/empty-list.component';
 import { UserChoiceModalComponent } from 'src/app/shared/components/user-choice-modal/user-choice-modal.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { UserChoiceModalComponent } from 'src/app/shared/components/user-choice-
     MainRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    MatIconModule
   ],
   providers:[
     FormBuilder

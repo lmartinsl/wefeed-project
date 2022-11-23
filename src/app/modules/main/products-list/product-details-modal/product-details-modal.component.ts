@@ -76,9 +76,17 @@ export class ProductDetailsModalComponent implements OnInit {
         this.sendToWhatsApp();
         break;
       case 'excluir produto':
-        this.showChoiceModal = true;
+        this.openChoiceModal();
         break;
     }
+  }
+
+  openChoiceModal(){
+    this.showChoiceModal = true;
+  }
+
+  closeChoiceModal(){
+    this.showChoiceModal = false;
   }
 
   sendToWhatsApp() {
@@ -92,7 +100,7 @@ export class ProductDetailsModalComponent implements OnInit {
   }
 
   onChoiceModalResponse(userChoice: any){
-    this.showChoiceModal = false;
+    this.closeChoiceModal();
     if(userChoice.target.innerText === "Sim"){
       this.deleteProduct()
     }
