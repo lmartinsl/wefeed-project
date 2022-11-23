@@ -1,0 +1,41 @@
+div#Modal {
+    display: none ; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    padding: 1rem;
+    border: 2px solid #a6bf4b;
+    width: 72%;
+    background: #fff;
+    border-radius: 1rem;
+    left: 13%;
+    text-align: center;
+    animation-name: animatetop;
+    animation-duration: 0.3s
+}
+
+p{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+span#buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+button {
+    background: #a6bf4b;
+    color: #fff;
+    border: 0;
+    width: 4rem;
+    height: 2rem;
+    border-radius: 1rem;
+}
+
+
+  /* Add Animation */
+  @keyframes animatetop {
+    from {opacity: 0}
+    to {opacity: 1}
+  }

@@ -19,6 +19,13 @@ export class ProductDetailsModalComponent implements OnInit {
   footerModalButton: Element;
   footerButtonLabel: string = 'excluir produto';
   isPerson: boolean;
+  showChoiceModal: boolean;
+
+  choiceModalData = {
+    question:'Deseja realmente excluir este produto?',
+    firstButton:'Sim',
+    secondButton: "Não"
+  }
 
   constructor(
     private elementRef: ElementRef,
@@ -69,7 +76,7 @@ export class ProductDetailsModalComponent implements OnInit {
         this.sendToWhatsApp();
         break;
       case 'excluir produto':
-        this.deleteProduct();
+        this.showChoiceModal = true;
         break;
     }
   }
@@ -82,6 +89,13 @@ export class ProductDetailsModalComponent implements OnInit {
         this.productData.name +
         WHATSAPP.POS_TEXT
     );
+  }
+
+  onChoiceModalResponse(userChoice: any){
+    this.showChoiceModal = false;
+    if(userChoice.target.innerText === "Sim"){
+      this.deleteProduct()
+    }
   }
 
   deleteProduct() {

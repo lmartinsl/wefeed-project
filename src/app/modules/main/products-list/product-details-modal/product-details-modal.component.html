@@ -40,10 +40,20 @@
                 </span>
             </div>
 
+
+
           </div>
           <div class="modal-footer" role="button">
             <p>{{footerButtonLabel}}</p>
           </div>
     </div>
-  
 </div>
+
+<user-choice-modal 
+*ngIf="showChoiceModal"
+[modalData]="choiceModalData"
+(buttonClicked)="onChoiceModalResponse($event)">
+</user-choice-modal>
+
+
+

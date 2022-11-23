@@ -16,6 +16,7 @@ import { ProductsListItemComponent } from './products-list/products-list-item/pr
 import { ProductRegisterComponent } from './product-register/product-register.component';
 import { ProductDetailsModalComponent } from './products-list/product-details-modal/product-details-modal.component';
 import { EmptyListComponent } from './products-list/empty-list/empty-list.component';
+import { UserChoiceModalComponent } from 'src/app/shared/components/user-choice-modal/user-choice-modal.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { EmptyListComponent } from './products-list/empty-list/empty-list.compon
      ProductsListItemComponent,
      ProductRegisterComponent,
      ProductDetailsModalComponent,
-     EmptyListComponent
+     EmptyListComponent,
+     UserChoiceModalComponent
     ],
   imports: [
     CommonModule,

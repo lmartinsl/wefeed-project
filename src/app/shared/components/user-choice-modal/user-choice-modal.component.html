@@ -1,0 +1,9 @@
+<div id="Modal">
+    <span>
+        <p>{{ modalData.question }}</p>
+    </span>
+    <span id="buttons">
+        <button (click)="close($event)"> {{ modalData.firstButton }} </button>
+        <button (click)="close($event)"> {{ modalData.secondButton }} </button>
+    </span>
+</div>
